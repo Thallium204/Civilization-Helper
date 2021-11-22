@@ -1,0 +1,325 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://fonts/font_wonder_name.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/font_era_name.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/wonder cards/era name bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/wonder cards/wonder image backing.png" type="Texture" id=4]
+[ext_resource path="res://assets/wonder cards/wonder name bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/wonder images/Hanging_Gardens.png" type="Texture" id=6]
+[ext_resource path="res://assets/wonder cards/rivet.png" type="Texture" id=7]
+[ext_resource path="res://assets/wonder types/culture.png" type="Texture" id=8]
+[ext_resource path="res://assets/wonder cards/wonder image border.png" type="Texture" id=9]
+[ext_resource path="res://assets/wonder cards/world lines.png" type="Texture" id=10]
+[ext_resource path="res://assets/wonder cards/wonder focus decorator.png" type="Texture" id=11]
+[ext_resource path="res://src/WonderCard.gd" type="Script" id=12]
+[ext_resource path="res://fonts/font_description.tres" type="DynamicFont" id=13]
+[ext_resource path="res://assets/wonder cards/wonder_description.png" type="Texture" id=14]
+[ext_resource path="res://fonts/MinionPro-Bold.otf" type="DynamicFontData" id=15]
+[ext_resource path="res://assets/resources/gear.png" type="Texture" id=16]
+[ext_resource path="res://assets/wonder cards/cost decorator.png" type="Texture" id=17]
+[ext_resource path="res://assets/resources/marble.png" type="Texture" id=18]
+[ext_resource path="res://assets/resources/diamond.png" type="Texture" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 15 )
+
+[node name="WonderCard" type="Control"]
+margin_right = 410.0
+margin_bottom = 630.0
+rect_min_size = Vector2( 410, 630 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+wonder_name = "Hanging Gardens"
+auto_detect = false
+era_type = 0
+focus_type = 0
+description = "At the start of your turn, you may place 1 control token on a space of terrain difficulty 4 or less that is adjacent to a friendly city."
+base_cost = 8
+cost_mod = 0
+additional_resource = 1
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0901961, 0.0470588, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBG" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.133
+margin_left = 20.0
+margin_top = 12.0
+margin_right = -20.0
+margin_bottom = -12.0
+texture = ExtResource( 5 )
+patch_margin_left = 27
+patch_margin_top = 27
+patch_margin_right = 26
+patch_margin_bottom = 21
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NameBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hanging Gardens"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EraBG" type="NinePatchRect" parent="."]
+anchor_top = 0.108
+anchor_right = 1.0
+anchor_bottom = 0.175
+margin_left = 45.0
+margin_right = -45.0
+margin_bottom = -7.62939e-06
+texture = ExtResource( 3 )
+patch_margin_left = 40
+patch_margin_right = 43
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EraBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = -0.209991
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ancient Era"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RivetLeft" type="TextureRect" parent="."]
+anchor_left = 0.17
+anchor_top = 0.11
+anchor_right = 0.17
+anchor_bottom = 0.11
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RivetRight" type="TextureRect" parent="."]
+anchor_left = 0.83
+anchor_top = 0.11
+anchor_right = 0.83
+anchor_bottom = 0.11
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageBorder" type="NinePatchRect" parent="."]
+anchor_left = 0.337
+anchor_top = 0.195
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 14.15
+margin_right = -42.0
+margin_bottom = -19.0
+texture = ExtResource( 9 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 34
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="NinePatchRect" parent="ImageBorder"]
+self_modulate = Color( 0.25098, 0.0823529, 0.407843, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 34
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="WorldLines" type="TextureRect" parent="ImageBorder/BG"]
+modulate = Color( 1, 1, 1, 0.243137 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WonderImage" type="TextureRect" parent="ImageBorder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FocusDecorator" type="TextureRect" parent="."]
+anchor_top = 0.189
+anchor_right = 0.283
+anchor_bottom = 0.5
+margin_left = 17.0
+margin_top = 46.6651
+margin_bottom = -59.2649
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="FocusImage" type="TextureRect" parent="FocusDecorator"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 6.0
+margin_right = -18.0
+margin_bottom = -15.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Decription" type="NinePatchRect" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.883
+margin_left = 8.0
+margin_right = -8.0
+texture = ExtResource( 14 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 34
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Decription"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
+margin_top = 20.0
+margin_right = -26.0
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "At the start of your turn, you may place 1 control token on a space of terrain difficulty 4 or less that is adjacent to a friendly city."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostDecorator" type="TextureRect" parent="."]
+anchor_left = 0.061
+anchor_top = 0.865
+anchor_right = 0.255
+anchor_bottom = 0.991
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CostDecorator"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_right = -0.540009
+margin_bottom = 0.620056
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InnateResource" type="TextureRect" parent="."]
+anchor_left = 0.593
+anchor_top = 0.888
+anchor_right = 0.758
+anchor_bottom = 0.991
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="InnateResource"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdditionalResource" type="TextureRect" parent="."]
+anchor_left = 0.77
+anchor_top = 0.888
+anchor_right = 0.932
+anchor_bottom = 0.991
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="AdditionalResource"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
