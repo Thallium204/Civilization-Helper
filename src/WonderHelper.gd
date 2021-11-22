@@ -41,7 +41,6 @@ func prepare_stacks():
 	for focus_type in stack_data.keys():
 		var dat = stack_data[focus_type]
 		dat.stack = create_stack(focus_type,wonder_context)
-	print(stack_data)
 
 func create_stack(focus_type,context):
 	var temp_stack:Array = []
@@ -50,16 +49,16 @@ func create_stack(focus_type,context):
 	temp_stack = context[focus_type][gl.ERA_ANCIENT]
 	temp_stack.shuffle()
 	temp_stack.pop_front()
-	main_stack.append_array(temp_stack)
+	main_stack += temp_stack
 	
 	temp_stack = context[focus_type][gl.ERA_MEDIEVAL]
 	temp_stack.shuffle()
 	temp_stack.pop_front()
-	main_stack.append_array(temp_stack)
+	main_stack += temp_stack
 	
 	temp_stack = context[focus_type][gl.ERA_MODERN]
 	temp_stack.shuffle()
-	main_stack.append_array(temp_stack)
+	main_stack += temp_stack
 	
 	return main_stack
 

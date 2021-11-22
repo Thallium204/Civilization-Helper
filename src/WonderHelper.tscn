@@ -128,7 +128,6 @@ text = "Age Wonders"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="HBoxBuild/Culture" to="." method="_on_build_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="HBoxBuild/Economy" to="." method="_on_build_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="HBoxBuild/Military" to="." method="_on_build_pressed" binds= [ 2 ]]
