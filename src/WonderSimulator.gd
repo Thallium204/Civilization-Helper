@@ -1,7 +1,7 @@
 extends Control
 
 onready var era_label = $EraPanel/Label
-
+RandomNumberGenerator
 onready var stack_data = {
 	gl.FOCUS_CULTURE : {
 		"stack":[],
@@ -173,3 +173,7 @@ func able_buttons(able):
 
 
 
+
+
+func _on_Lock_toggled(button_pressed):
+	able_buttons(not button_pressed)

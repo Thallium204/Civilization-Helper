@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/font_button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menu.gd" type="Script" id=3]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.25
+custom_fonts/font = ExtResource( 1 )
+text = "Wonder Assist"
+align = 1
+valign = 1
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.3
+anchor_top = 0.25
+anchor_right = 0.7
+anchor_bottom = 0.75
+custom_constants/separation = 32
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonSimulator" type="Button" parent="VBox"]
+margin_top = 266.0
+margin_right = 1024.0
+margin_bottom = 344.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "Simulator"
+
+[node name="ButtonInspector" type="Button" parent="VBox"]
+margin_top = 376.0
+margin_right = 1024.0
+margin_bottom = 454.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "Inspector"
+
+[connection signal="pressed" from="VBox/ButtonSimulator" to="." method="_on_ButtonSimulator_pressed"]
+[connection signal="pressed" from="VBox/ButtonInspector" to="." method="_on_ButtonInspector_pressed"]
