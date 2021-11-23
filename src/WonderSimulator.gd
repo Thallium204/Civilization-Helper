@@ -1,7 +1,7 @@
 extends Control
 
 onready var era_label = $EraPanel/Label
-RandomNumberGenerator
+
 onready var stack_data = {
 	gl.FOCUS_CULTURE : {
 		"stack":[],
