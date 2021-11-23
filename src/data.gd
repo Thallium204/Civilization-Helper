@@ -162,7 +162,7 @@ const WONDER = {
 		"image_name":"Venetian_Arsenal",
 		"era_type":gl.ERA_MEDIEVAL,
 		"focus_type":gl.FOCUS_MILITARY,
-		"description":"Once per turn, after you resolve the card in your focus row, you may resolve it again, treating it as if it was in the first slot.",
+		"description":"Once per turn, after you resolve the card in the fifth slot of your focus row, you may resolve it again, treating it as if it was in the first slot.",
 		"cost":10,
 		"additional_resource":gl.RESOURCE_DIAMOND},
 	"Huey Teocalli" : {
@@ -176,7 +176,7 @@ const WONDER = {
 		"image_name":"Statue_of_Liberty",
 		"era_type":gl.ERA_MODERN,
 		"focus_type":gl.FOCUS_MILITARY,
-		"description":"Before you replace a rival city with 1 or your cities, replace all rival control tokens that are adjacent to that rival city with your unused, unreinforced control tokens.",
+		"description":"Before you replace a rival city with 1 of your cities, replace all rival control tokens that are adjacent to that rival city with your unused, unreinforced control tokens.",
 		"cost":12,
 		"additional_resource":gl.RESOURCE_MARBLE},
 	"Pentagon" : {
@@ -233,14 +233,14 @@ const WONDER = {
 		"image_name":"University_of_Sankore",
 		"era_type":gl.ERA_MEDIEVAL,
 		"focus_type":gl.FOCUS_SCIENCE,
-		"description":"At the end of your turn, if you replaced 1 or more of your focus cards this turn, you may sawp any 2 non-science cards in your row.",
+		"description":"At the end of your turn, if you replaced 1 or more of your focus cards this turn, you may swap any 2 non-science cards in your focus row.",
 		"cost":9,
 		"additional_resource":gl.RESOURCE_OIL},
 	"Oxford University" : {
 		"image_name":"Oxford_University",
 		"era_type":gl.ERA_MODERN,
 		"focus_type":gl.FOCUS_SCIENCE,
-		"description":"Whe you replace a focus card other than a science focus card, you do not have to replace it with a card of the same type.",
+		"description":"When you replace a focus card other than a science focus card, you do not have to replace it with a card of the same type.",
 		"cost":10,
 		"additional_resource":gl.RESOURCE_MARBLE},
 	"Amundsen-Scott Research Station" : {

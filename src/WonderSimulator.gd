@@ -73,13 +73,13 @@ func read_timeline():
 		var wonder_index = int(floor(dat.timeline[-1] / 2.0))
 		var discount = -int(dat.timeline[-1] % 2)
 		var wonder_name = get_wonder_from_stack(dat.stack,wonder_index)
-		dat.button.disabled = wonder_name == ""
 		make_current(wonder_name,discount,dat)
 		if dat.card:
 			latest_era = max(latest_era,dat.card.era_type)
 		else:
 			latest_era = gl.ERA_MODERN
 	update_era_type_UI(latest_era)
+	update_build_UI()
 
 func get_wonder_from_stack(stack,index):
 	if index >= stack.size():
@@ -140,6 +140,10 @@ func _on_Undo_pressed():
 func update_undo_UI():
 	$Undo.disabled = (stack_data[0].timeline.size() == 1)
 
+func update_build_UI():
+	for focus_type in stack_data:
+		var dat = stack_data[focus_type]
+		dat.button.disabled = (dat.card == null)
 
 func _on_Reset_pressed():
 	var SPEED = 6.0
@@ -154,12 +158,12 @@ func _on_Reset_pressed():
 			array.append(list)
 		for pos in array[0].size():
 			for focus_type in gl.WONDER_CONTEXT.keys():
-				make_current(array[focus_type][pos],0,stack_data[focus_type])
+				make_current(array[focus_type][pos],-1,stack_data[focus_type])
 				yield(get_tree().create_timer(1.0/SPEED/4.0/7.0), "timeout")
 	prepare_stacks()
 	read_timeline()
 	able_buttons(true)
-	update_undo_UI()
+	_on_Lock_toggled($Lock.pressed)
 
 
 func able_buttons(able):
@@ -170,10 +174,9 @@ func able_buttons(able):
 	$HBoxBuild/Military.disabled = not able
 	$HBoxBuild/Science.disabled = not able
 	$Progress.disabled = not able
-
-
-
-
+	if able:
+		update_undo_UI()
+		update_build_UI()
 
 func _on_Lock_toggled(button_pressed):
 	able_buttons(not button_pressed)

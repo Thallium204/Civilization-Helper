@@ -6,16 +6,23 @@ code = "shader_type canvas_item;
 uniform bool is_selected = false;
 uniform vec4 selected_color : hint_color;
 
+float rand(vec2 co, float time){
+	return fract(sin((dot(co ,vec2(12.9898,78.233))+time)) * 43758.5453);
+}
+
 void fragment() {
 	
 	COLOR = vec4(0.0);
 	if (is_selected) {
 		vec2 dist_UV = abs(vec2(0.5) - UV);
+		dist_UV += ((2.0 * vec2(rand(dist_UV,TIME)))-1.0) * 0.01;
 		float dist = 2.0*max(dist_UV.x,dist_UV.y);
-		COLOR = mix(COLOR,selected_color,pow(dist,6));
+		COLOR = mix(COLOR,selected_color,pow(dist,10.0+sin(TIME*2.0)));
 	}
 	
-}"
+}
+
+"
 
 [resource]
 resource_local_to_scene = true

@@ -131,7 +131,7 @@ margin_bottom = 108.0
 
 [node name="Label4" type="Label" parent="EraPanel/HBox"]
 margin_left = 1959.0
-margin_right = 2432.0
+margin_right = 2422.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -145,8 +145,8 @@ align = 1
 valign = 1
 
 [node name="Texture4" type="TextureRect" parent="EraPanel/HBox"]
-margin_left = 2442.0
-margin_right = 2570.0
+margin_left = 2432.0
+margin_right = 2560.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
