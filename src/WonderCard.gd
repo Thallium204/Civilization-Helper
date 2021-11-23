@@ -84,10 +84,13 @@ func update_cost_UI():
 		wonder_cost.text = str(base_cost + cost_mod)
 		if cost_mod < 0:
 			wonder_cost.set("custom_colors/font_color",Color.aquamarine)
+			$Highlight.material.set_shader_param("is_selected",true)
 		elif cost_mod > 0:
 			wonder_cost.set("custom_colors/font_color",Color.salmon)
+			$Highlight.material.set_shader_param("is_selected",true)
 		else:
 			wonder_cost.set("custom_colors/font_color",Color.white)
+			$Highlight.material.set_shader_param("is_selected",false)
 
 func set_additional_resource(new_additional_resource):
 	additional_resource = new_additional_resource

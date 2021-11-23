@@ -1,13 +1,13 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://fonts/font_wonder_name.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/font_era_name.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/wonder cards/era name bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/wonder cards/wonder image backing.png" type="Texture" id=4]
 [ext_resource path="res://assets/wonder cards/wonder name bg.png" type="Texture" id=5]
-[ext_resource path="res://assets/wonder images/Hanging_Gardens.png" type="Texture" id=6]
+[ext_resource path="res://assets/wonder images/Great_Zimbabwe.png" type="Texture" id=6]
 [ext_resource path="res://assets/wonder cards/rivet.png" type="Texture" id=7]
-[ext_resource path="res://assets/wonder types/culture.png" type="Texture" id=8]
+[ext_resource path="res://assets/wonder types/economy.png" type="Texture" id=8]
 [ext_resource path="res://assets/wonder cards/wonder image border.png" type="Texture" id=9]
 [ext_resource path="res://assets/wonder cards/world lines.png" type="Texture" id=10]
 [ext_resource path="res://assets/wonder cards/wonder focus decorator.png" type="Texture" id=11]
@@ -17,36 +17,48 @@
 [ext_resource path="res://fonts/MinionPro-Bold.otf" type="DynamicFontData" id=15]
 [ext_resource path="res://assets/resources/gear.png" type="Texture" id=16]
 [ext_resource path="res://assets/wonder cards/cost decorator.png" type="Texture" id=17]
-[ext_resource path="res://assets/resources/marble.png" type="Texture" id=18]
+[ext_resource path="res://assets/resources/oil.png" type="Texture" id=18]
 [ext_resource path="res://assets/resources/diamond.png" type="Texture" id=19]
+[ext_resource path="res://shaders/shader_highlight.tres" type="Material" id=20]
+[ext_resource path="res://assets/wonder cards/resource bg.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
-size = 46
+size = 80
 font_data = ExtResource( 15 )
 
 [node name="WonderCard" type="Control"]
-margin_right = 410.0
-margin_bottom = 630.0
-rect_min_size = Vector2( 410, 630 )
+margin_right = 492.0
+margin_bottom = 756.0
+rect_min_size = Vector2( 574, 882 )
 size_flags_horizontal = 5
 size_flags_vertical = 5
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-wonder_name = "Hanging Gardens"
+wonder_name = "Great Zimbabwe"
 auto_detect = false
-era_type = 0
-focus_type = 0
-description = "At the start of your turn, you may place 1 control token on a space of terrain difficulty 4 or less that is adjacent to a friendly city."
-base_cost = 8
+era_type = 1
+focus_type = 1
+description = "You can place trade tokens on this card instead of on your focus cards, up to a limit of 4.
+
+At the start of your turn, you may move trade tokens from this card to cards in your focus row."
+base_cost = 9
 cost_mod = 0
-additional_resource = 1
+additional_resource = 2
 
 [node name="BG" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0901961, 0.0470588, 0.0470588, 1 )
+color = Color( 0.101961, 0.027451, 0.027451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlight" type="ColorRect" parent="."]
+material = ExtResource( 20 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,7 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Hanging Gardens"
+text = "Great Zimbabwe"
 align = 1
 valign = 1
 __meta__ = {
@@ -102,7 +114,7 @@ margin_top = 2.0
 margin_bottom = -0.209991
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Ancient Era"
+text = "Medieval Era"
 align = 1
 valign = 1
 __meta__ = {
@@ -114,10 +126,10 @@ anchor_left = 0.17
 anchor_top = 0.11
 anchor_right = 0.17
 anchor_bottom = 0.11
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 8.0
-margin_bottom = 8.0
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
@@ -130,10 +142,10 @@ anchor_left = 0.83
 anchor_top = 0.11
 anchor_right = 0.83
 anchor_bottom = 0.11
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 8.0
-margin_bottom = 8.0
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
@@ -160,7 +172,7 @@ __meta__ = {
 }
 
 [node name="BG" type="NinePatchRect" parent="ImageBorder"]
-self_modulate = Color( 0.25098, 0.0823529, 0.407843, 1 )
+self_modulate = Color( 0.533333, 0.54902, 0.317647, 1 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -178,6 +190,11 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.243137 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -7.0
+margin_right = -2.56201
+margin_bottom = -14.86
+rect_scale = Vector2( 1, 1.1 )
 texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
@@ -214,10 +231,10 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 6.0
-margin_right = -18.0
-margin_bottom = -15.0
+margin_left = 23.0
+margin_top = 27.0
+margin_right = -26.442
+margin_bottom = -42.372
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
@@ -241,12 +258,15 @@ __meta__ = {
 [node name="Label" type="Label" parent="Decription"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 26.0
-margin_top = 20.0
-margin_right = -26.0
+margin_left = 18.0
+margin_top = 22.0
+margin_right = -20.0
+margin_bottom = 25.194
 custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "At the start of your turn, you may place 1 control token on a space of terrain difficulty 4 or less that is adjacent to a friendly city."
+text = "You can place trade tokens on this card instead of on your focus cards, up to a limit of 4.
+
+At the start of your turn, you may move trade tokens from this card to cards in your focus row."
 align = 1
 autowrap = true
 __meta__ = {
@@ -268,12 +288,12 @@ __meta__ = {
 [node name="Label" type="Label" parent="CostDecorator"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 8.0
-margin_right = -0.540009
-margin_bottom = 0.620056
+margin_top = 15.0
+margin_right = -0.355995
+margin_bottom = 0.867981
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "8"
+text = "9"
 align = 1
 valign = 1
 __meta__ = {
@@ -295,9 +315,22 @@ __meta__ = {
 [node name="Image" type="TextureRect" parent="InnateResource"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="InnateResource"]
+modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
+show_behind_parent = true
+anchor_left = 0.14
+anchor_top = 0.14
+anchor_right = 0.86
+anchor_bottom = 0.86
+texture = ExtResource( 21 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -317,9 +350,24 @@ __meta__ = {
 [node name="Image" type="TextureRect" parent="AdditionalResource"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="AdditionalResource"]
+modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
+show_behind_parent = true
+anchor_left = 0.14
+anchor_top = 0.14
+anchor_right = 0.86
+anchor_bottom = 0.86
+margin_top = 3.8147e-06
+margin_bottom = 7.62939e-06
+texture = ExtResource( 21 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

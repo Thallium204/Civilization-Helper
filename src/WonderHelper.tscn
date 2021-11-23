@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/WonderHelper.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font_button.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/resources/diamond.png" type="Texture" id=4]
+[ext_resource path="res://assets/resources/marble.png" type="Texture" id=5]
+[ext_resource path="res://assets/resources/mercury.png" type="Texture" id=6]
+[ext_resource path="res://assets/resources/oil.png" type="Texture" id=7]
 
 [node name="Helper" type="Control"]
 anchor_right = 1.0
@@ -11,16 +15,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EraPanel" type="Panel" parent="."]
+[node name="EraPanel" type="ColorRect" parent="."]
 anchor_right = 1.0
-anchor_bottom = 0.2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_bottom = 0.15
+color = Color( 0.380392, 0.380392, 0.380392, 1 )
 
 [node name="Label" type="Label" parent="EraPanel"]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 custom_fonts/font = ExtResource( 3 )
 text = "Ancient Era"
 align = 1
@@ -29,17 +31,165 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxCards" type="HBoxContainer" parent="."]
-anchor_top = 0.2
+[node name="HBox" type="HBoxContainer" parent="EraPanel"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.7
+anchor_bottom = 1.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EraPanel/HBox"]
+margin_right = 488.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.25098, 0.0823529, 0.407843, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "     Cultural   :"
+align = 1
+valign = 1
+
+[node name="Texture" type="TextureRect" parent="EraPanel/HBox"]
+margin_left = 498.0
+margin_right = 626.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 128, 64 )
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="VSeparator" type="VSeparator" parent="EraPanel/HBox"]
+margin_left = 636.0
+margin_right = 640.0
+margin_bottom = 108.0
+
+[node name="Label2" type="Label" parent="EraPanel/HBox"]
+margin_left = 650.0
+margin_right = 1090.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.533333, 0.54902, 0.317647, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = " Economic   :"
+align = 1
+valign = 1
+
+[node name="Texture2" type="TextureRect" parent="EraPanel/HBox"]
+margin_left = 1100.0
+margin_right = 1228.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 128, 64 )
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="VSeparator2" type="VSeparator" parent="EraPanel/HBox"]
+margin_left = 1238.0
+margin_right = 1242.0
+margin_bottom = 108.0
+
+[node name="Label3" type="Label" parent="EraPanel/HBox"]
+margin_left = 1252.0
+margin_right = 1787.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.564706, 0.0666667, 0.0666667, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "   Militaristic   :"
+align = 1
+valign = 1
+
+[node name="Texture3" type="TextureRect" parent="EraPanel/HBox"]
+margin_left = 1797.0
+margin_right = 1925.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 128, 64 )
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="VSeparator3" type="VSeparator" parent="EraPanel/HBox"]
+margin_left = 1935.0
+margin_right = 1939.0
+margin_bottom = 108.0
+
+[node name="Label4" type="Label" parent="EraPanel/HBox"]
+margin_left = 1949.0
+margin_right = 2422.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0862745, 0.0941176, 0.294118, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "   Scientific   :"
+align = 1
+valign = 1
+
+[node name="Texture4" type="TextureRect" parent="EraPanel/HBox"]
+margin_left = 2432.0
+margin_right = 2560.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 128, 64 )
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Undo" type="Button" parent="."]
+margin_right = 390.0
+margin_bottom = 115.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 3 )
+disabled = true
+enabled_focus_mode = 0
+text = "Undo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -369.0
+margin_bottom = 110.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxCards" type="HBoxContainer" parent="."]
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Culture" type="CenterContainer" parent="HBoxCards"]
 margin_right = 637.0
-margin_bottom = 720.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -49,7 +199,7 @@ __meta__ = {
 [node name="Economy" type="CenterContainer" parent="HBoxCards"]
 margin_left = 641.0
 margin_right = 1278.0
-margin_bottom = 720.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -59,7 +209,7 @@ __meta__ = {
 [node name="Military" type="CenterContainer" parent="HBoxCards"]
 margin_left = 1282.0
 margin_right = 1919.0
-margin_bottom = 720.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -69,7 +219,7 @@ __meta__ = {
 [node name="Science" type="CenterContainer" parent="HBoxCards"]
 margin_left = 1923.0
 margin_right = 2560.0
-margin_bottom = 720.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -77,57 +227,70 @@ __meta__ = {
 }
 
 [node name="HBoxBuild" type="HBoxContainer" parent="."]
-anchor_top = 0.7
+anchor_top = 0.8
 anchor_right = 1.0
-anchor_bottom = 0.85
+anchor_bottom = 0.9
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Culture" type="Button" parent="HBoxBuild"]
 margin_right = 637.0
-margin_bottom = 216.0
+margin_bottom = 144.0
+focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Build"
 
 [node name="Economy" type="Button" parent="HBoxBuild"]
 margin_left = 641.0
 margin_right = 1278.0
-margin_bottom = 216.0
+margin_bottom = 144.0
+focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Build"
 
 [node name="Military" type="Button" parent="HBoxBuild"]
 margin_left = 1282.0
 margin_right = 1919.0
-margin_bottom = 216.0
+margin_bottom = 144.0
+focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Build"
 
 [node name="Science" type="Button" parent="HBoxBuild"]
 margin_left = 1923.0
 margin_right = 2560.0
-margin_bottom = 216.0
+margin_bottom = 144.0
+focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Build"
 
 [node name="Progress" type="Button" parent="."]
-anchor_top = 0.85
+anchor_top = 0.9
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Age Wonders"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="Undo" to="." method="_on_Undo_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
 [connection signal="pressed" from="HBoxBuild/Culture" to="." method="_on_build_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="HBoxBuild/Economy" to="." method="_on_build_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="HBoxBuild/Military" to="." method="_on_build_pressed" binds= [ 2 ]]

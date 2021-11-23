@@ -20,7 +20,7 @@ const WONDER = {
 		"image_name":"Stonehenge",
 		"era_type":gl.ERA_ANCIENT,
 		"focus_type":gl.FOCUS_CULTURE,
-		"description":"fter you place a control token on a hill space, you may place a control token on 1 or more hill spaces (which can trigger this effect again).",
+		"description":"After you place a control token on a hill space, you may place a control token on 1 or more hill spaces (which can trigger this effect again).",
 		"cost":7,
 		"additional_resource":gl.RESOURCE_MERCURY},
 	"Taj Mahal" : {
