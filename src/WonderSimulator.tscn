@@ -40,8 +40,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="EraPanel/HBox"]
-margin_right = 488.0
+[node name="HBox" type="HBoxContainer" parent="EraPanel/HBox"]
+margin_right = 623.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="EraPanel/HBox/HBox"]
+margin_right = 491.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -50,13 +56,13 @@ custom_colors/font_color = Color( 0.25098, 0.0823529, 0.407843, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "     Cultural   :"
-align = 1
+text = "Cultural  :"
+align = 2
 valign = 1
 
-[node name="Texture" type="TextureRect" parent="EraPanel/HBox"]
-margin_left = 498.0
-margin_right = 626.0
+[node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox"]
+margin_left = 495.0
+margin_right = 623.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -65,28 +71,34 @@ expand = true
 stretch_mode = 6
 
 [node name="VSeparator" type="VSeparator" parent="EraPanel/HBox"]
-margin_left = 636.0
-margin_right = 640.0
+margin_left = 633.0
+margin_right = 637.0
 margin_bottom = 108.0
 
-[node name="Label2" type="Label" parent="EraPanel/HBox"]
-margin_left = 650.0
-margin_right = 1132.0
+[node name="HBox2" type="HBoxContainer" parent="EraPanel/HBox"]
+margin_left = 647.0
+margin_right = 1270.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="EraPanel/HBox/HBox2"]
+margin_right = 491.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.533333, 0.54902, 0.317647, 1 )
+custom_colors/font_color = Color( 0.772549, 0.796078, 0.458824, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "    Economic   :"
-align = 1
+text = "Economic  :"
+align = 2
 valign = 1
 
-[node name="Texture2" type="TextureRect" parent="EraPanel/HBox"]
-margin_left = 1142.0
-margin_right = 1270.0
+[node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox2"]
+margin_left = 495.0
+margin_right = 623.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -99,9 +111,15 @@ margin_left = 1280.0
 margin_right = 1284.0
 margin_bottom = 108.0
 
-[node name="Label3" type="Label" parent="EraPanel/HBox"]
+[node name="HBox3" type="HBoxContainer" parent="EraPanel/HBox"]
 margin_left = 1294.0
-margin_right = 1797.0
+margin_right = 1917.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="EraPanel/HBox/HBox3"]
+margin_right = 491.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -110,13 +128,13 @@ custom_colors/font_color = Color( 0.564706, 0.0666667, 0.0666667, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = " Militaristic   :"
-align = 1
+text = "Militaristic  :"
+align = 2
 valign = 1
 
-[node name="Texture3" type="TextureRect" parent="EraPanel/HBox"]
-margin_left = 1807.0
-margin_right = 1935.0
+[node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox3"]
+margin_left = 495.0
+margin_right = 623.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -125,13 +143,19 @@ expand = true
 stretch_mode = 6
 
 [node name="VSeparator3" type="VSeparator" parent="EraPanel/HBox"]
-margin_left = 1945.0
-margin_right = 1949.0
+margin_left = 1927.0
+margin_right = 1931.0
 margin_bottom = 108.0
 
-[node name="Label4" type="Label" parent="EraPanel/HBox"]
-margin_left = 1959.0
-margin_right = 2422.0
+[node name="HBox4" type="HBoxContainer" parent="EraPanel/HBox"]
+margin_left = 1941.0
+margin_right = 2564.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="EraPanel/HBox/HBox4"]
+margin_right = 491.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -140,13 +164,13 @@ custom_colors/font_color = Color( 0.0862745, 0.0941176, 0.294118, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "  Scientific   :"
-align = 1
+text = "Scientific  :"
+align = 2
 valign = 1
 
-[node name="Texture4" type="TextureRect" parent="EraPanel/HBox"]
-margin_left = 2432.0
-margin_right = 2560.0
+[node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox4"]
+margin_left = 495.0
+margin_right = 623.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -244,7 +268,9 @@ anchor_top = 0.8
 anchor_right = 1.0
 anchor_bottom = 0.9
 margin_left = 20.0
+margin_top = 20.0
 margin_right = -20.0
+margin_bottom = -10.0
 custom_constants/separation = 40
 __meta__ = {
 "_edit_use_anchors_": false
@@ -252,7 +278,7 @@ __meta__ = {
 
 [node name="Culture" type="Button" parent="HBoxBuild"]
 margin_right = 600.0
-margin_bottom = 144.0
+margin_bottom = 114.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -263,7 +289,7 @@ text = "Build"
 [node name="Economy" type="Button" parent="HBoxBuild"]
 margin_left = 640.0
 margin_right = 1240.0
-margin_bottom = 144.0
+margin_bottom = 114.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -274,7 +300,7 @@ text = "Build"
 [node name="Military" type="Button" parent="HBoxBuild"]
 margin_left = 1280.0
 margin_right = 1880.0
-margin_bottom = 144.0
+margin_bottom = 114.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -285,7 +311,7 @@ text = "Build"
 [node name="Science" type="Button" parent="HBoxBuild"]
 margin_left = 1920.0
 margin_right = 2520.0
-margin_bottom = 144.0
+margin_bottom = 114.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -298,7 +324,7 @@ anchor_top = 0.9
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 20.0
+margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -20.0
 focus_mode = 0
