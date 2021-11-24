@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/wonder cards/wonder name bg.png" type="Texture" id=5]
 [ext_resource path="res://assets/wonder images/Great_Zimbabwe.png" type="Texture" id=6]
 [ext_resource path="res://assets/wonder cards/rivet.png" type="Texture" id=7]
-[ext_resource path="res://assets/wonder types/economy.png" type="Texture" id=8]
+[ext_resource path="res://assets/focus types/culture.png" type="Texture" id=8]
 [ext_resource path="res://assets/wonder cards/wonder image border.png" type="Texture" id=9]
 [ext_resource path="res://assets/wonder cards/world lines.png" type="Texture" id=10]
 [ext_resource path="res://assets/wonder cards/wonder focus decorator.png" type="Texture" id=11]
@@ -231,10 +231,10 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 23.0
-margin_top = 27.0
-margin_right = -26.442
-margin_bottom = -42.372
+margin_left = 25.0
+margin_top = 28.0
+margin_right = -25.442
+margin_bottom = -38.372
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6

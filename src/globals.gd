@@ -9,7 +9,7 @@ func get_wonder_card(wonder_name):
 	return WonderCard
 
 func get_focus_image(focus_type):
-	return load("res://assets/wonder types/"+FOCUS_NAMES_PATHLIST[focus_type]+".png")
+	return load("res://assets/focus types/"+FOCUS_NAMES_PATHLIST[focus_type]+".png")
 
 func get_resource_image(resource_type):
 	return load("res://assets/resources/"+RESOURCE_NAMES_PATHLIST[resource_type]+".png")

@@ -1,0 +1,167 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/focus types/culture.png" type="Texture" id=1]
+[ext_resource path="res://assets/focus card bits/tech level banner.png" type="Texture" id=2]
+[ext_resource path="res://assets/focus card bits/type decorator.png" type="Texture" id=3]
+[ext_resource path="res://fonts/font_focus_name.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/font_tech_level.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/focus card bits/world lines.png" type="Texture" id=6]
+[ext_resource path="res://assets/focus images/Early_Empire.png" type="Texture" id=7]
+[ext_resource path="res://assets/focus card bits/image border bg.png" type="Texture" id=8]
+[ext_resource path="res://assets/focus card bits/name banner.png" type="Texture" id=9]
+[ext_resource path="res://assets/focus card bits/image border.png" type="Texture" id=10]
+[ext_resource path="res://fonts/Copperplate Gothic Bold Regular.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+font_data = ExtResource( 11 )
+
+[node name="FocusCard" type="Control"]
+rect_min_size = Vector2( 575, 890 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.356863, 0.356863, 0.356863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBG" type="NinePatchRect" parent="."]
+anchor_left = 0.329
+anchor_right = 1.0
+anchor_bottom = 0.094
+margin_top = 20.0
+margin_right = -20.0
+texture = ExtResource( 9 )
+patch_margin_left = 22
+patch_margin_top = 20
+patch_margin_right = 19
+patch_margin_bottom = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NameBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Early Empire"
+align = 1
+valign = 1
+
+[node name="FocusDecorator" type="TextureRect" parent="."]
+anchor_left = 0.034
+anchor_top = 0.049
+anchor_right = 0.342
+anchor_bottom = 0.409
+margin_left = -3.36739
+margin_top = 6.17355
+margin_right = -3.36739
+margin_bottom = 6.17358
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="TextureRect" parent="FocusDecorator"]
+show_behind_parent = true
+anchor_left = 0.169
+anchor_top = 0.05
+anchor_right = 0.831
+anchor_bottom = 0.415
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banner" type="TextureRect" parent="FocusDecorator"]
+modulate = Color( 1, 0.639216, 0.294118, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="FocusDecorator"]
+anchor_left = 0.208
+anchor_top = 0.478
+anchor_right = 0.785
+anchor_bottom = 0.574
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Culture"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTech" type="Label" parent="FocusDecorator"]
+anchor_top = 0.574
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+text = "I"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageBorder" type="NinePatchRect" parent="."]
+anchor_left = 0.373
+anchor_top = 0.121
+anchor_right = 0.934
+anchor_bottom = 0.399
+texture = ExtResource( 10 )
+patch_margin_left = 33
+patch_margin_top = 34
+patch_margin_right = 31
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="NinePatchRect" parent="ImageBorder"]
+modulate = Color( 0.862745, 0.52549, 0.2, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+patch_margin_left = 36
+patch_margin_top = 37
+patch_margin_right = 37
+patch_margin_bottom = 34
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldLines" type="TextureRect" parent="ImageBorder"]
+modulate = Color( 1, 1, 1, 0.247059 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="ImageBorder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+stretch_mode = 6
