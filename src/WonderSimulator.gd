@@ -158,7 +158,10 @@ func _on_Reset_pressed():
 			array.append(list)
 		for pos in array[0].size():
 			for focus_type in gl.WONDER_CONTEXT.keys():
-				make_current(array[focus_type][pos],-1,stack_data[focus_type])
+				var actual_index = focus_type
+				if actual_index in [4,5]:
+					actual_index -= 2
+				make_current(array[actual_index][pos],-1,stack_data[focus_type])
 				yield(get_tree().create_timer(1.0/SPEED/4.0/7.0), "timeout")
 	prepare_stacks()
 	read_timeline()

@@ -1,5 +1,138 @@
 extends Node
 
+
+const FOCUS = {
+	
+	"Early Empire" : {
+		"image_name":"Early_Empire",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_CULTURE,
+		"description":"Place 2 control tokens on spaces matching this slot's terrain or lower that are adjacent to friendly cities."},
+	"Drama and Poetry" : {
+		"image_name":"Drama_and_Poetry",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_CULTURE,
+		"description":"Place 2 control tokens on spaces matching this slot's terrain or lower that are adjacent to friendly cities.\n\nThen, you may move 1 of your control tokens to an adjacent, non-water space that is empty (does not contain a token or plastic figure)."},
+	"Civil Service" : {
+		"image_name":"Civil_Service",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_CULTURE,
+		"description":"Place 2 control tokens on spaces matching this slot's terrain or lower that are adjacent to friendly cities.\n\nThen, place 1 control token on a space matching this slot's terrain or lower that is adjacent to a friendly space."},
+	"Mass Media" : {
+		"image_name":"Mass_Media",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_CULTURE,
+		"description":"Place 3 control tokens on spaces matching this slot's terrain or lower that are adjacent to friendly cities.\n\nThen, choose a rival control token within 2 spaces of a friendly space. If the rival token is unreinforced, replace it with 1 of your control tokens on the unreinforced side. If the rival token is reinforced, flip it to it's unreinforced side."},
+	
+	"Foreign Trade" : {
+		"image_name":"Foreign_Trade",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_ECONOMY,
+		"description":"Move each of your caravans up to 3 spaces. They can move into spaces matching this slot's terrain or lower."},
+	"Currency" : {
+		"image_name":"Currency",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_ECONOMY,
+		"description":"Move each of your caravans up to 4 spaces. They can move into spaces matching this slot's terrain or lower.\n\nYour caravans can move into a barbarian's space. If you move a caravan into a barbarian's space, remove that barbarian from the map without gaining a trade token and end that caravan's movement."},
+	"Steam Power" : {
+		"image_name":"Steam_Power",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_ECONOMY,
+		"description":"Move each of your caravans up to 6 spaces. They can move into spaces matching this slot's terrain or lower, as well as water.\n\nThen, you may exchange 1 of your resource tokens with another resource token of any type from the supply."},
+	"Capitalism" : {
+		"image_name":"Capitalism",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_ECONOMY,
+		"description":"Move each of your caravans up to 6 spaces. They can move into spaces matching this slot's terrain or lower, as well as water.\n\nOnce per turn, after you reset this card, choose another card in your focus row. Resolve that card as though it is in the first slot, but do not reset it."},
+	
+	"Irrigation" : {
+		"image_name":"Irrigation",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_GROWTH,
+		"description":"Place a district on a space matching this slot's terrain or lower that is adjacent to a friendly city.\n\nOr, reinforce a number of control tokens equal to this slot's number."},
+	"Engineering" : {
+		"image_name":"Engineering",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_GROWTH,
+		"description":"Place a district on a space matching this slot's terrain or lower that is adjacent to a friendly city. Then place 1 control token on a space matching this slot's terrain or lower that is adjacent to a friendly district.\n\nOr, reinforce a number of control tokens equal to this slot's number."},
+	"Sanitation" : {
+		"image_name":"Sanitation",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_GROWTH,
+		"description":"Place a district on a space matching this slot's terrain or lower that is adjacent to a friendly city.\n\nThen, reinforce a number of control tokens equal to this slot's number."},
+	"Globalization" : {
+		"image_name":"Globalization",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_GROWTH,
+		"description":"Place a district on a space matching this slot's terrain or lower that is adjacent to a friendly city.\n\nThen, choose a type of district. Each player that has a district of that type on the map resolves its effect.\n\nThen, reinforce a number of control tokens equal to this slot's number."},
+	
+	"Pottery" : {
+		"image_name":"Pottery",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_INDUSTRY,
+		"description":"Build 1 world wonder. Your production equals this slot's number.\n\nOr, build 1 city on a legal space of this slot's terrain or lower with 2 spaces of a friendly space."},
+	"Animal Husbandry" : {
+		"image_name":"Animal_Husbandry",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_INDUSTRY,
+		"description":"Build 1 world wonder. Your production equals this slot's number.\n\nOr, build 1 city on a legal space of this slot's terrain or lower with 3 spaces of a friendly space.\n\nOr, build 1 city on a legal space containing a friendly caravan or army. Then, return that caravan or army to your focus card."},
+	"Nationalism" : {
+		"image_name":"Nationalism",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_INDUSTRY,
+		"description":"Build 1 world wonder. Your production equals this slot's number, or, if this card is in the fifth slot, your production equals 7.\n\nOr, build 1 city on a legal space of this slot's terrain or lower with 4 spaces of a friendly space. You can count through water."},
+	"Urbanization" : {
+		"image_name":"Urbanization",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_INDUSTRY,
+		"description":"Build 1 world wonder. Your production equals this slot's number.\n\nOr, build 1 city on a legal space of this slot's terrain or lower with 5 spaces of a friendly space. You can count through water.\n\nThen, if you built a city, place up to 2 control tokens adjacent to that city. Those tokens can be placed on spaces matching this slot's terrain or lower."},
+	
+	"Masonry" : {
+		"image_name":"Masonry",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_MILITARY,
+		"description":"Move each of your armies up to 3 spaces. They can move into spaces matching this slot's terrain or lower. Your combat value equals this slot's number."},
+	"Iron Working" : {
+		"image_name":"Iron_Working",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_MILITARY,
+		"description":"Move each of your armies up to 4 spaces. They can move into spaces matching this slot's terrain or lower. Your combat value equals this slot's number, plus 2 if attacking a barbarian."},
+	"Mass Production" : {
+		"image_name":"Mass_Production",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_MILITARY,
+		"description":"Move each of your armies up to 5 spaces. They can move into spaces matching this slot's terrain or lower, as well as water. Your combat value equals this slot's number plus 2.\n\nYou may move (and attack with) 1 of your armies that was defeated this turn a second time after returning it to this card."},
+	"Flight" : {
+		"image_name":"Flight",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_MILITARY,
+		"description":"Move each of your armies up to 6 spaces. They can move into spaces matching this slot's terrain or lower, as well as water. They can move through spaces with unreinforced control tokens, caravans, barbarians, and city-states. Your combat value equals this slot's number plus 3."},
+	
+	"Astrology" : {
+		"image_name":"Astrology",
+		"tech_level":1,
+		"focus_type":gl.FOCUS_SCIENCE,
+		"description":"Advance your tech dial a number of spaces equal to this slot's number."},
+	"Mathematics" : {
+		"image_name":"Mathematics",
+		"tech_level":2,
+		"focus_type":gl.FOCUS_SCIENCE,
+		"description":"Place 1 trade token from the supply on 1 of your focus cards.\n\nThen, advance your tech dial a number of spaces equal to this slot's number."},
+	"Replaceable Parts" : {
+		"image_name":"Replaceable_Parts",
+		"tech_level":3,
+		"focus_type":gl.FOCUS_SCIENCE,
+		"description":"Gain 1 resource of your choice from the supply. You cannot gain a resource of a type taht you already have.\n\nThen, advance your tech dial a number of spaces equal to this slot's number."},
+	"Nuclear Power" : {
+		"image_name":"Nuclear_Power",
+		"tech_level":4,
+		"focus_type":gl.FOCUS_SCIENCE,
+		"description":"If you resolved this card in the fifth slot, choose 1 space. In that space and all adjacent spaces, destroy all unreinforced control tokens and flip all reinforced control tokens to their unreinforced side.\n\nThen, advance your tech dial a number of spaces equal to this slot's number."},
+}
+
+
+
+
 const WONDER = {
 	
 	"Hanging Gardens" : {

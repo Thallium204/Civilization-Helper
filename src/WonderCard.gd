@@ -162,7 +162,7 @@ func _get_property_list():
 			hint_string = gl.RESOURCE_NAMES,
 			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE
 		},
-		]
+	]
 
 
 

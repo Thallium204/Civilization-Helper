@@ -2,11 +2,17 @@ tool
 extends Node
 
 var wonder_card_load = preload("res://src/WonderCard.tscn")
+var focus_card_load = preload("res://src/FocusCard.tscn")
 
 func get_wonder_card(wonder_name):
 	var WonderCard = wonder_card_load.instance()
 	WonderCard.wonder_name = wonder_name
 	return WonderCard
+
+func get_focus_card(focus_card_name):
+	var FocusCard = focus_card_load.instance()
+	FocusCard.card_name = focus_card_name
+	return FocusCard
 
 func get_focus_image(focus_type):
 	return load("res://assets/focus types/"+FOCUS_NAMES_PATHLIST[focus_type]+".png")
@@ -15,25 +21,62 @@ func get_resource_image(resource_type):
 	return load("res://assets/resources/"+RESOURCE_NAMES_PATHLIST[resource_type]+".png")
 
 func get_resource_image_by_focus_type(focus_type):
-	return get_resource_image(focus_type)
+	return get_resource_image(focus_to_resource_type(focus_type))
+
+func focus_to_resource_type(focus_type):
+	var trans = [0,1,0,0,2,3]
+	return trans[focus_type]
 
 enum {
 	FOCUS_CULTURE,
 	FOCUS_ECONOMY,
+	FOCUS_GROWTH,
+	FOCUS_INDUSTRY,
 	FOCUS_MILITARY,
 	FOCUS_SCIENCE,
 }
 
-const FOCUS_NAMES = "Culture,Economy,Military,Science"
-const FOCUS_NAMES_PATHLIST = ["culture","economy","military","science"]
+const FOCUS_NAMES = "Culture,Economy,Growth,Industry,Military,Science"
+const FOCUS_NAMES_PATHLIST = ["culture","economy","growth","industry","military","science"]
 
 const FOCUS_COLOR = PoolColorArray([
 	Color("401568"),
 	Color("888c51"),
+	Color.white,
+	Color.white,
 	Color("901111"),
 	Color("16184b"),
 ])
 
+enum {
+	PLAYER_RED,
+	PLAYER_ORANGE,
+	PLAYER_BLUE,
+	PLAYER_GREEN,
+	PLAYER_PURPLE
+}
+
+const PLAYER_NAMES = "Red,Orange,Blue,Green,Purple"
+
+const PLAYER_COLOR = PoolColorArray([
+	Color("f53232"),
+	Color("ff824b"),
+	Color("71f9e9"),
+	Color("91fda5"),
+	Color("ca91fd"),
+])
+
+
+enum {
+	TECH_LEVEL_0,
+	TECH_LEVEL_I,
+	TECH_LEVEL_II,
+	TECH_LEVEL_III,
+	TECH_LEVEL_IV,
+}
+
+const TECH_NAMES = "0,I,II,III,IV"
+const TECH_NAMES_LIST = ["0","I","II","III","IV"]
 
 
 enum {

@@ -9,3 +9,7 @@ func _on_ButtonSimulator_pressed():
 
 func _on_ButtonInspector_pressed():
 	get_tree().change_scene("res://src/WonderInspector.tscn")
+
+
+func _on_FocusCardInspector_pressed():
+	get_tree().change_scene("res://src/FocusCardInspector.tscn")
