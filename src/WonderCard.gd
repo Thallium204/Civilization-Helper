@@ -42,7 +42,7 @@ func update_wonder_name_UI():
 
 func update_wonder_image_UI(image_pathname):
 	if wonder_image:
-		wonder_image.texture = load("res://assets/wonder images/"+image_pathname+".png")
+		wonder_image.texture = assets.get_wonder_image(wonder_name)
 
 func set_era_type(new_era_type):
 	era_type = new_era_type
@@ -60,7 +60,7 @@ func update_focus_UI():
 	if focus_bg:
 		focus_bg.self_modulate = gl.FOCUS_COLOR[focus_type]
 	if focus_texture:
-		focus_texture.texture = gl.get_focus_image(focus_type)
+		focus_texture.texture = assets.get_focus_image(focus_type)
 	update_innate_resource_UI()
 
 func set_description(new_description):
@@ -98,11 +98,11 @@ func set_additional_resource(new_additional_resource):
 
 func update_additional_resource_UI():
 	if additional_resource_image:
-		additional_resource_image.texture = gl.get_resource_image(additional_resource)
+		additional_resource_image.texture = assets.get_resource_image(additional_resource)
 
 func update_innate_resource_UI():
 	if innate_resource_image:
-		innate_resource_image.texture = gl.get_resource_image_by_focus_type(focus_type)
+		innate_resource_image.texture = assets.get_resource_image_by_focus_type(focus_type)
 
 func _ready():
 	set_auto_detect()

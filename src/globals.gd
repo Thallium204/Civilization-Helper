@@ -14,18 +14,22 @@ func get_focus_card(focus_card_name):
 	FocusCard.card_name = focus_card_name
 	return FocusCard
 
-func get_focus_image(focus_type):
-	return load("res://assets/focus types/"+FOCUS_NAMES_PATHLIST[focus_type]+".png")
-
-func get_resource_image(resource_type):
-	return load("res://assets/resources/"+RESOURCE_NAMES_PATHLIST[resource_type]+".png")
-
-func get_resource_image_by_focus_type(focus_type):
-	return get_resource_image(focus_to_resource_type(focus_type))
-
 func focus_to_resource_type(focus_type):
 	var trans = [0,1,0,0,2,3]
 	return trans[focus_type]
+
+
+enum {
+	TERRAIN_TYPE_WATER,
+	TERRAIN_TYPE_GRASSLAND,
+	TERRAIN_TYPE_HILLS,
+	TERRAIN_TYPE_FOREST,
+	TERRAIN_TYPE_DERERT,
+	TERRAIN_TYPE_MOUNTAINS,
+}
+
+const TERRAIN_NAMES = "Water,Grassland,Hills,Forest,Desert,Mountains"
+const TERRAIN_NAMES_PATHLIST = ["water","grassland","hills","forest","desert","mountains"]
 
 enum {
 	FOCUS_CULTURE,

@@ -41,28 +41,28 @@ __meta__ = {
 }
 
 [node name="HBox" type="HBoxContainer" parent="EraPanel/HBox"]
-margin_right = 623.0
+margin_right = 622.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="EraPanel/HBox/HBox"]
-margin_right = 491.0
+margin_right = 490.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.25098, 0.0823529, 0.407843, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 3 )
 text = "Cultural  :"
 align = 2
 valign = 1
 
 [node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox"]
-margin_left = 495.0
-margin_right = 623.0
+margin_left = 494.0
+margin_right = 622.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -71,34 +71,34 @@ expand = true
 stretch_mode = 6
 
 [node name="VSeparator" type="VSeparator" parent="EraPanel/HBox"]
-margin_left = 633.0
-margin_right = 637.0
+margin_left = 632.0
+margin_right = 636.0
 margin_bottom = 108.0
 
 [node name="HBox2" type="HBoxContainer" parent="EraPanel/HBox"]
-margin_left = 647.0
-margin_right = 1270.0
+margin_left = 646.0
+margin_right = 1268.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="EraPanel/HBox/HBox2"]
-margin_right = 491.0
+margin_right = 490.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.772549, 0.796078, 0.458824, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 3 )
 text = "Economic  :"
 align = 2
 valign = 1
 
 [node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox2"]
-margin_left = 495.0
-margin_right = 623.0
+margin_left = 494.0
+margin_right = 622.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -107,34 +107,34 @@ expand = true
 stretch_mode = 6
 
 [node name="VSeparator2" type="VSeparator" parent="EraPanel/HBox"]
-margin_left = 1280.0
-margin_right = 1284.0
+margin_left = 1278.0
+margin_right = 1282.0
 margin_bottom = 108.0
 
 [node name="HBox3" type="HBoxContainer" parent="EraPanel/HBox"]
-margin_left = 1294.0
-margin_right = 1917.0
+margin_left = 1292.0
+margin_right = 1914.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="EraPanel/HBox/HBox3"]
-margin_right = 491.0
+margin_right = 490.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.564706, 0.0666667, 0.0666667, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 3 )
 text = "Militaristic  :"
 align = 2
 valign = 1
 
 [node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox3"]
-margin_left = 495.0
-margin_right = 623.0
+margin_left = 494.0
+margin_right = 622.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -143,34 +143,34 @@ expand = true
 stretch_mode = 6
 
 [node name="VSeparator3" type="VSeparator" parent="EraPanel/HBox"]
-margin_left = 1927.0
-margin_right = 1931.0
+margin_left = 1924.0
+margin_right = 1928.0
 margin_bottom = 108.0
 
 [node name="HBox4" type="HBoxContainer" parent="EraPanel/HBox"]
-margin_left = 1941.0
-margin_right = 2564.0
+margin_left = 1938.0
+margin_right = 2560.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="EraPanel/HBox/HBox4"]
-margin_right = 491.0
+margin_right = 490.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.0862745, 0.0941176, 0.294118, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 3 )
 text = "Scientific  :"
 align = 2
 valign = 1
 
 [node name="Texture" type="TextureRect" parent="EraPanel/HBox/HBox4"]
-margin_left = 495.0
-margin_right = 623.0
+margin_left = 494.0
+margin_right = 622.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 128, 64 )
 size_flags_vertical = 3
@@ -340,6 +340,6 @@ __meta__ = {
 [connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
 [connection signal="pressed" from="HBoxBuild/Culture" to="." method="_on_build_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="HBoxBuild/Economy" to="." method="_on_build_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="HBoxBuild/Military" to="." method="_on_build_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="HBoxBuild/Science" to="." method="_on_build_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="HBoxBuild/Military" to="." method="_on_build_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="HBoxBuild/Science" to="." method="_on_build_pressed" binds= [ 5 ]]
 [connection signal="pressed" from="Progress" to="." method="_on_Progress_pressed"]

@@ -58,7 +58,7 @@ func set_focus_type(new_focus_type):
 
 func update_focus_type_UI():
 	if focus_texture:
-		focus_texture.texture = gl.get_focus_image(focus_type)
+		focus_texture.texture = assets.get_focus_image(focus_type)
 	if focus_label:
 		focus_label.text = gl.FOCUS_NAMES_PATHLIST[focus_type]
 

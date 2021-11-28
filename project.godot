@@ -8,8 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "civ_CMPVisual",
+"language": "GDScript",
+"path": "res://src/cmp/cmp_visual.gd"
+} ]
 _global_script_class_icons={
+"civ_CMPVisual": ""
 }
 
 [application]
@@ -22,6 +28,7 @@ config/icon="res://icon.png"
 
 gl="*res://src/globals.gd"
 data="*res://src/data.gd"
+assets="*res://src/assets.gd"
 
 [display]
 
