@@ -25,7 +25,7 @@ func set_auto_detect(_new_auto_detect=false):
 	if data.WONDER.has(wonder_name):
 		var dat = data.WONDER[wonder_name]
 		set_wonder_name(wonder_name)
-		update_wonder_image_UI(dat.image_name)
+		update_wonder_image_UI()
 		set_era_type(dat.era_type)
 		set_focus_type(dat.focus_type)
 		set_description(dat.description)
@@ -40,7 +40,7 @@ func update_wonder_name_UI():
 	if wonder_name_label:
 		wonder_name_label.text = wonder_name
 
-func update_wonder_image_UI(image_pathname):
+func update_wonder_image_UI():
 	if wonder_image:
 		wonder_image.texture = assets.get_wonder_image(wonder_name)
 

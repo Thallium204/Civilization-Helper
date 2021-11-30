@@ -1,0 +1,61 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform int directions = 4;
+
+uniform float border_size = 0.05;
+uniform bool is_hovering = false;
+uniform bool is_selectable = false;
+uniform bool is_selected = false;
+
+bool is_trans(vec2 uv,vec2 uv_shift, sampler2D tex) {
+	
+	vec4 color = texture(tex,uv);
+	vec4 color_shift = texture(tex,uv+uv_shift);
+	return (color.a >= .1) && (color_shift.a < 0.1);
+	
+}
+
+void fragment() {
+	
+	COLOR = texture(TEXTURE,UV);
+	
+	vec4 border_color = vec4(1.0);
+	if (is_selected) {
+		border_color = vec4(1.0,0.5,0.2,1.0);
+	}
+	
+	if (is_selectable) {
+		COLOR.rgb = mix(COLOR.rgb,vec3(1.0),0.15);
+	}
+	
+	if (is_hovering) {
+		COLOR.rgb = mix(COLOR.rgb,vec3(1.0),0.15);
+	}
+	
+	if (is_selectable || is_selected) {
+		
+		for (int i = 0; i < directions; i++) {
+			
+			float rad = float(i)*3.14/(float(directions)/2.0);
+			vec2 vector = vec2(sin(rad),cos(rad));
+			vec2 uv_shift = vector * border_size;
+			if (is_trans(UV,uv_shift,TEXTURE)) {
+				COLOR = border_color;
+			}
+		}
+	}
+}
+
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/directions = 8
+shader_param/border_size = 0.022
+shader_param/is_hovering = false
+shader_param/is_selectable = false
+shader_param/is_selected = false

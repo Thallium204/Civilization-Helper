@@ -1,3 +1,4 @@
+tool
 extends Node
 
 const ASSET_ERROR_TERRAIN = preload("res://assets/terrain images/error.png")
@@ -23,3 +24,6 @@ func get_terrain_image(terrain_id):
 		var image_pathname = gl.TERRAIN_NAMES_PATHLIST[terrain_id]
 		return load("res://assets/terrain images/"+image_pathname+".png")
 	return ASSET_ERROR_TERRAIN
+
+func get_government_image_by_focus_type(focus_type):
+	return load("res://assets/slot shift images/"+gl.GOVERNMENT_NAMES_PATHLIST[focus_type]+".png")

@@ -9,17 +9,21 @@ var focus_type = gl.FOCUS_CULTURE setget set_focus_type
 var tech_level = gl.TECH_LEVEL_I setget set_tech_level
 var description = "lorem ipsum" setget set_description
 
-onready var card_name_label = $NameBG/Label
+var has_government = true setget set_has_government
 
-onready var focus_texture = $FocusDecorator/Type
-onready var focus_label = $FocusDecorator/LabelFocus
-onready var tech_level_bg = $FocusDecorator/Banner
-onready var tech_level_label = $FocusDecorator/LabelTech
+onready var card_name_label = $VBox/Card/NameBG/Label
 
-onready var card_image = $ImageBorder/Image
-onready var card_image_bg = $ImageBorder/BG
+onready var focus_texture = $VBox/Card/FocusDecorator/Type
+onready var focus_label = $VBox/Card/FocusDecorator/LabelFocus
+onready var tech_level_bg = $VBox/Card/FocusDecorator/Banner
+onready var tech_level_label = $VBox/Card/FocusDecorator/LabelTech
 
-onready var description_label = $Decription/Label
+onready var card_image = $VBox/Card/ImageBorder/Image
+onready var card_image_bg = $VBox/Card/ImageBorder/BG
+
+onready var description_label = $VBox/Card/Decription/Label
+
+onready var slot_shift_stack = $VBox/SlotShift/HBox
 
 func set_auto_detect(_new_auto_detect=false):
 	if data.FOCUS.has(card_name):
@@ -29,6 +33,7 @@ func set_auto_detect(_new_auto_detect=false):
 		set_focus_type(dat.focus_type)
 		set_tech_level(dat.tech_level)
 		set_description(dat.description)
+		set_has_government(has_government)
 
 func set_player_id(new_player_id):
 	player_id = new_player_id
@@ -78,6 +83,11 @@ func update_description_UI():
 	if description_label:
 		description_label.text = description
 
+func set_has_government(new_has_government):
+	has_government = new_has_government
+	if slot_shift_stack:
+		slot_shift_stack.update_stack(has_government,focus_type,player_id)
+
 func _ready():
 	set_auto_detect()
 
@@ -126,6 +136,11 @@ func _get_property_list():
 			name = "description",
 			type = TYPE_STRING,
 			hint = PROPERTY_HINT_MULTILINE_TEXT,
+			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE
+		},
+		{
+			name = "has_government",
+			type = TYPE_BOOL,
 			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE
 		},
 	]

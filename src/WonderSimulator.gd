@@ -147,7 +147,7 @@ func update_build_UI():
 
 func _on_Reset_pressed():
 	var SPEED = 6.0
-	var ITER = 15.0
+	var ITER = 4.0
 	able_buttons(false)
 	for i in int(ITER):
 		var array = []

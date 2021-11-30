@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/focus images/Currency.png" type="Texture" id=1]
 [ext_resource path="res://assets/focus card bits/tech level banner.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/focus card bits/description_bg.png" type="Texture" id=14]
 [ext_resource path="res://fonts/font_focus_description.tres" type="DynamicFont" id=15]
 [ext_resource path="res://src/FocusCard.gd" type="Script" id=16]
+[ext_resource path="res://src/SlotShifter.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/ShifterStack.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 17
@@ -24,21 +26,101 @@ font_data = ExtResource( 11 )
 [node name="FocusCard" type="Control"]
 margin_right = 575.0
 margin_bottom = 890.0
-rect_min_size = Vector2( 575, 890 )
+rect_min_size = Vector2( 575, 1000 )
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-player_id = 4
+player_id = 0
 card_name = "Currency"
 auto_detect = false
 focus_type = 1
 tech_level = 2
-description = "Move each of your caravans up to 4 spaces. they can move into spaces matching this slot's terrain or lower.
+description = "Move each of your caravans up to 4 spaces. They can move into spaces matching this slot's terrain or lower.
 
 Your caravans can move into a barbarian's space. If you move a caravan into a barbarian's space, remove that barbarian from the map without gaining a trade token and end that caravan's movement."
+has_government = false
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlotShift" type="Control" parent="VBox"]
+margin_right = 575.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 110 )
+
+[node name="Border" type="NinePatchRect" parent="VBox/SlotShift"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+patch_margin_left = 37
+patch_margin_top = 39
+patch_margin_right = 37
+patch_margin_bottom = 38
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="NinePatchRect" parent="VBox/SlotShift/Border"]
+modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+patch_margin_left = 40
+patch_margin_top = 43
+patch_margin_right = 37
+patch_margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="VBox/SlotShift"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gov" parent="VBox/SlotShift/HBox" instance=ExtResource( 17 )]
+visible = false
+margin_right = 575.0
+margin_bottom = 110.0
+
+[node name="Georgia" parent="VBox/SlotShift/HBox" instance=ExtResource( 17 )]
+visible = false
+margin_left = 289.0
+margin_right = 575.0
+margin_bottom = 110.0
+
+[node name="Taj" parent="VBox/SlotShift/HBox" instance=ExtResource( 17 )]
+visible = false
+margin_left = 279.0
+margin_right = 415.0
+margin_bottom = 90.0
+
+[node name="Machu" parent="VBox/SlotShift/HBox" instance=ExtResource( 17 )]
+visible = false
+margin_left = 419.0
+margin_right = 555.0
+margin_bottom = 90.0
+
+[node name="Card" type="Control" parent="VBox"]
+margin_top = 110.0
+margin_right = 575.0
+margin_bottom = 1000.0
+rect_min_size = Vector2( 575, 890 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BG" type="ColorRect" parent="VBox/Card"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.239216, 0.25098, 0.231373, 1 )
@@ -46,7 +128,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="template" type="TextureRect" parent="."]
+[node name="template" type="TextureRect" parent="VBox/Card"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 6.0
@@ -56,7 +139,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NameBG" type="NinePatchRect" parent="."]
+[node name="NameBG" type="NinePatchRect" parent="VBox/Card"]
 anchor_left = 0.281
 anchor_top = 0.011
 anchor_right = 0.976
@@ -71,11 +154,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="NameBG"]
+[node name="Label" type="Label" parent="VBox/Card/NameBG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Currency"
 align = 1
 valign = 1
@@ -83,7 +166,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FocusDecorator" type="TextureRect" parent="."]
+[node name="FocusDecorator" type="TextureRect" parent="VBox/Card"]
 anchor_left = 0.015
 anchor_top = 0.061
 anchor_right = 0.304
@@ -96,7 +179,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Type" type="TextureRect" parent="FocusDecorator"]
+[node name="Type" type="TextureRect" parent="VBox/Card/FocusDecorator"]
 show_behind_parent = true
 anchor_left = 0.169
 anchor_top = 0.056
@@ -109,13 +192,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelFocus" type="Label" parent="FocusDecorator"]
+[node name="LabelFocus" type="Label" parent="VBox/Card/FocusDecorator"]
 anchor_left = 0.208
 anchor_top = 0.478
 anchor_right = 0.785
 anchor_bottom = 0.574
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "economy"
 align = 1
 valign = 1
@@ -123,7 +206,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Banner" type="TextureRect" parent="FocusDecorator"]
+[node name="Banner" type="TextureRect" parent="VBox/Card/FocusDecorator"]
 modulate = Color( 0.792157, 0.568627, 0.992157, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -134,7 +217,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelTech" type="Label" parent="FocusDecorator"]
+[node name="LabelTech" type="Label" parent="VBox/Card/FocusDecorator"]
 anchor_top = 0.574
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -146,7 +229,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ImageBorder" type="NinePatchRect" parent="."]
+[node name="ImageBorder" type="NinePatchRect" parent="VBox/Card"]
 anchor_left = 0.349
 anchor_top = 0.117
 anchor_right = 0.905
@@ -160,7 +243,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="NinePatchRect" parent="ImageBorder"]
+[node name="BG" type="NinePatchRect" parent="VBox/Card/ImageBorder"]
 modulate = Color( 0.792157, 0.568627, 0.992157, 1 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -174,7 +257,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WorldLines" type="TextureRect" parent="ImageBorder"]
+[node name="WorldLines" type="TextureRect" parent="VBox/Card/ImageBorder"]
 modulate = Color( 1, 1, 1, 0.247059 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -185,7 +268,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Image" type="TextureRect" parent="ImageBorder"]
+[node name="Image" type="TextureRect" parent="VBox/Card/ImageBorder"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -198,7 +281,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Decription" type="NinePatchRect" parent="."]
+[node name="Decription" type="NinePatchRect" parent="VBox/Card"]
 anchor_left = 0.014
 anchor_top = 0.401
 anchor_right = 0.968
@@ -212,7 +295,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="TextureRect" parent="Decription"]
+[node name="BG" type="TextureRect" parent="VBox/Card/Decription"]
 modulate = Color( 0.662745, 0.662745, 0.592157, 1 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -223,16 +306,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Decription"]
+[node name="Label" type="Label" parent="VBox/Card/Decription"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
 margin_top = 32.0
 margin_right = -33.55
 margin_bottom = -32.19
-custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Move each of your caravans up to 4 spaces. they can move into spaces matching this slot's terrain or lower.
+custom_fonts/font = ExtResource( 15 )
+text = "Move each of your caravans up to 4 spaces. They can move into spaces matching this slot's terrain or lower.
 
 Your caravans can move into a barbarian's space. If you move a caravan into a barbarian's space, remove that barbarian from the map without gaining a trade token and end that caravan's movement."
 autowrap = true

@@ -10,12 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "civ_CMPInterface",
+"language": "GDScript",
+"path": "res://src/cmp/cmp_interface.gd"
+}, {
+"base": "Node2D",
 "class": "civ_CMPVisual",
 "language": "GDScript",
 "path": "res://src/cmp/cmp_visual.gd"
+}, {
+"base": "Control",
+"class": "civ_SlotShifter",
+"language": "GDScript",
+"path": "res://src/SlotShifter.gd"
 } ]
 _global_script_class_icons={
-"civ_CMPVisual": ""
+"civ_CMPInterface": "",
+"civ_CMPVisual": "",
+"civ_SlotShifter": ""
 }
 
 [application]

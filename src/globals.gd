@@ -20,6 +20,18 @@ func focus_to_resource_type(focus_type):
 
 
 enum {
+	GOVERMENT_REPUBLIC,
+	GOVERMENT_OLIGARCHY,
+	GOVERMENT_MONARCHY,
+	GOVERMENT_COMMUNISM,
+	GOVERMENT_AUTOCRACY,
+	GOVERMENT_DEMOCRACY,
+}
+
+const GOVERNMENT_NAMES = "Republic,Oligarchy,Monarchy,Communism,Autocracy,Democracy"
+const GOVERNMENT_NAMES_PATHLIST = ["Republic","Oligarchy","Monarchy","Communism","Autocracy","Democracy"]
+
+enum {
 	TERRAIN_TYPE_WATER,
 	TERRAIN_TYPE_GRASSLAND,
 	TERRAIN_TYPE_HILLS,
