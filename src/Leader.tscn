@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://shaders/shader_circle.tres" type="Material" id=1]
+[ext_resource path="res://shaders/shader_highlight.tres" type="Material" id=2]
+[ext_resource path="res://assets/leaders/portraits/Amanitore.png" type="Texture" id=3]
+[ext_resource path="res://assets/leaders/flags/Nubia.png" type="Texture" id=4]
+
+[node name="Leader" type="Control"]
+margin_right = 262.0
+margin_bottom = 126.0
+rect_min_size = Vector2( 296, 188 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.415686, 0.415686, 0.415686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImagePortrait" type="TextureRect" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageFlag" type="TextureRect" parent="."]
+material = ExtResource( 1 )
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}

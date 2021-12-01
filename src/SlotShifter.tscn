@@ -1,25 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/wonder cards/wonder focus decorator.png" type="Texture" id=1]
 [ext_resource path="res://assets/slot shift images/arrow.png" type="Texture" id=2]
 [ext_resource path="res://assets/slot shift images/Autocracy.png" type="Texture" id=3]
 [ext_resource path="res://src/SlotShifter.gd" type="Script" id=4]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-void fragment() {
-	
-	COLOR = texture(TEXTURE,UV);
-	vec2 centered_uv = UV - vec2(0.5);
-	if (length(centered_uv) > 0.5) {
-		COLOR.a = 0.0;
-	}
-	
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[ext_resource path="res://shaders/shader_circle.tres" type="Material" id=5]
 
 [node name="SlotShifter" type="Control"]
 margin_right = 150.0
@@ -60,7 +45,7 @@ stretch_mode = 6
 
 [node name="Image" type="TextureRect" parent="HBox/TypeDecorator"]
 show_behind_parent = true
-material = SubResource( 2 )
+material = ExtResource( 5 )
 anchor_left = 0.143
 anchor_top = 0.05
 anchor_right = 0.86

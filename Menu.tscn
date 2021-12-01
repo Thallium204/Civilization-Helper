@@ -1,227 +1,188 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://fonts/font_title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/font_button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Menu.gd" type="Script" id=3]
 [ext_resource path="res://src/FocusCardInspector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/WonderInspector.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/WonderSimulator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/TileSelector.tscn" type="PackedScene" id=7]
+[ext_resource path="res://themes/theme_default.tres" type="Theme" id=8]
+[ext_resource path="res://src/MenuButton.gd" type="Script" id=9]
+[ext_resource path="res://resources/btngroup_menu.tres" type="ButtonGroup" id=10]
+[ext_resource path="res://src/BarbarianMovement.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/LeaderSelector.tscn" type="PackedScene" id=12]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 8 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 0.25
-custom_fonts/font = ExtResource( 1 )
-text = "Wonder Assist"
-align = 1
-valign = 1
+[node name="TileSelector" parent="." instance=ExtResource( 7 )]
 
-[node name="VBoxWonders" type="VBoxContainer" parent="."]
-anchor_left = 0.3
-anchor_top = 0.4
-anchor_right = 0.49
-anchor_bottom = 0.6
-custom_constants/separation = 32
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="WonderSimulator" parent="." instance=ExtResource( 6 )]
 
-[node name="Label" type="Label" parent="VBoxWonders"]
-margin_right = 486.0
-margin_bottom = 72.0
-custom_fonts/font = ExtResource( 2 )
-text = "Wonders"
-align = 1
-valign = 1
+[node name="BarbarianMovement" parent="." instance=ExtResource( 11 )]
 
-[node name="ButtonSimulator" type="Button" parent="VBoxWonders"]
-margin_top = 104.0
-margin_right = 486.0
-margin_bottom = 182.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
-text = "Simulator"
-
-[node name="ButtonInspector" type="Button" parent="VBoxWonders"]
-margin_top = 214.0
-margin_right = 486.0
-margin_bottom = 292.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
-text = "Inspector"
-
-[node name="VBoxFocusCards" type="VBoxContainer" parent="."]
-anchor_left = 0.51
-anchor_top = 0.4
-anchor_right = 0.7
-anchor_bottom = 0.6
-custom_constants/separation = 32
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxFocusCards"]
-margin_right = 486.0
-margin_bottom = 72.0
-custom_fonts/font = ExtResource( 2 )
-text = "Focus Cards"
-align = 1
-valign = 1
-
-[node name="ButtonSimulator" type="Button" parent="VBoxFocusCards"]
-margin_top = 104.0
-margin_right = 486.0
-margin_bottom = 182.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-disabled = true
-enabled_focus_mode = 0
-text = "Simulator"
-
-[node name="ButtonInspector" type="Button" parent="VBoxFocusCards"]
-margin_top = 214.0
-margin_right = 486.0
-margin_bottom = 292.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
-text = "Inspector"
-
-[node name="VBoxTileSelector" type="VBoxContainer" parent="."]
-anchor_left = 0.4
-anchor_top = 0.65
-anchor_right = 0.6
-anchor_bottom = 0.85
-custom_constants/separation = 32
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxTileSelector"]
-margin_top = 53.0
-margin_right = 512.0
-margin_bottom = 125.0
-custom_fonts/font = ExtResource( 2 )
-text = "Tiles"
-align = 1
-valign = 1
-
-[node name="ButtonSelector" type="Button" parent="VBoxTileSelector"]
-margin_top = 157.0
-margin_right = 512.0
-margin_bottom = 235.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
-text = "Selector"
-
-[node name="FocusInspector" parent="." instance=ExtResource( 4 )]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 2.0
-anchor_bottom = 2.0
-
-[node name="Button" type="Button" parent="FocusInspector"]
-anchor_right = 0.2
-anchor_bottom = 0.1
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -10.0
-margin_bottom = -10.0
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="LeaderSelector" parent="." instance=ExtResource( 12 )]
 
 [node name="WonderInspector" parent="." instance=ExtResource( 5 )]
-anchor_left = -1.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 2.0
-
-[node name="Button" type="Button" parent="WonderInspector"]
-anchor_left = 0.8
-anchor_right = 1.0
-anchor_bottom = 0.1
-margin_left = 10.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -10.0
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Simulator" parent="." instance=ExtResource( 6 )]
-anchor_left = -1.0
-anchor_top = -1.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-
-[node name="Button" type="Button" parent="Simulator"]
-anchor_left = 0.8
-anchor_top = 0.9
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -20.0
-margin_bottom = -20.0
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TileSelector" parent="." instance=ExtResource( 7 )]
 anchor_top = 1.0
 anchor_bottom = 2.0
 
-[node name="Button" type="Button" parent="TileSelector"]
-anchor_left = 0.4
-anchor_right = 0.6
-anchor_bottom = 0.1
-margin_left = 10.0
-margin_top = 20.0
-margin_right = -10.0
-margin_bottom = -10.0
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="FocusInspector" parent="." instance=ExtResource( 4 )]
+anchor_top = 1.0
+anchor_bottom = 2.0
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1280, 720 )
+position = Vector2( 1584, 720 )
 current = true
 
-[connection signal="pressed" from="VBoxWonders/ButtonSimulator" to="." method="_on_ButtonSimulator_pressed"]
-[connection signal="pressed" from="VBoxWonders/ButtonInspector" to="." method="_on_ButtonInspector_pressed"]
-[connection signal="pressed" from="VBoxFocusCards/ButtonInspector" to="." method="_on_FocusCardInspector_pressed"]
-[connection signal="pressed" from="VBoxTileSelector/ButtonSelector" to="." method="_on_ButtonSelector_pressed"]
-[connection signal="pressed" from="FocusInspector/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="WonderInspector/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Simulator/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="TileSelector/Button" to="." method="_on_Button_pressed"]
+[node name="Frame" type="Control" parent="Camera2D"]
+margin_left = -1584.0
+margin_top = -720.0
+margin_right = -976.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="Camera2D/Frame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.443137, 0.6, 0.584314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Camera2D/Frame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelGameAssist" type="Label" parent="Camera2D/Frame/VBox"]
+margin_right = 608.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 2 )
+text = "Game Assist"
+align = 1
+valign = 1
+
+[node name="ButtonLeaders" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 76.0
+margin_right = 608.0
+margin_bottom = 287.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Leaders"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../LeaderSelector")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")
+
+[node name="ButtonTiles" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 291.0
+margin_right = 608.0
+margin_bottom = 502.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Tiles"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../TileSelector")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")
+
+[node name="ButtonWonders" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 506.0
+margin_right = 608.0
+margin_bottom = 717.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Wonders"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../WonderSimulator")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")
+
+[node name="ButtonBarbarians" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 721.0
+margin_right = 608.0
+margin_bottom = 933.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Barbarians"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../BarbarianMovement")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")
+
+[node name="LabelInspectors" type="Label" parent="Camera2D/Frame/VBox"]
+margin_top = 937.0
+margin_right = 608.0
+margin_bottom = 1009.0
+custom_fonts/font = ExtResource( 2 )
+text = "Inspectors"
+align = 1
+valign = 1
+
+[node name="ButtonWonders2" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 1013.0
+margin_right = 608.0
+margin_bottom = 1224.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Wonders"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../WonderInspector")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")
+
+[node name="ButtonFocusCards" type="Button" parent="Camera2D/Frame/VBox"]
+margin_top = 1228.0
+margin_right = 608.0
+margin_bottom = 1440.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+enabled_focus_mode = 0
+group = ExtResource( 10 )
+text = "Focus Cards"
+script = ExtResource( 9 )
+control_path = NodePath("../../../../FocusInspector")
+camera_path = NodePath("../../..")
+tween_path = NodePath("../../../../Tween")

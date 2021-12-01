@@ -6,7 +6,7 @@ onready var georgia = $Georgia
 onready var taj = $Taj
 onready var machu = $Machu
 
-func update_stack(has_government,focus_type,player_id):
+func update_stack(has_government,focus_type,_player_id):
 	gov.active = has_government
 	if gov.active:
 		gov.active = true

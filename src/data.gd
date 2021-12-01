@@ -2,6 +2,100 @@ tool
 extends Node
 
 
+const LEADER = {
+	
+	"Amanitore" : {
+		"image_name":"Amanitore",
+		"civilization":"Nubia",
+		"focus_card":"",
+		"focus_row":[],},
+	"Catherine de Medici" : {
+		"image_name":"Catherine_de_Medici",
+		"civilization":"France",
+		"focus_card":"",
+		"focus_row":[],},
+	"Cleopatra" : {
+		"image_name":"Cleopatra",
+		"civilization":"Egypt",
+		"focus_card":"",
+		"focus_row":[],},
+	"Gilgamesh" : {
+		"image_name":"Gilgamesh",
+		"civilization":"Sumeria",
+		"focus_card":"",
+		"focus_row":[],},
+	"Gitarja" : {
+		"image_name":"Gitarja",
+		"civilization":"Indonesia",
+		"focus_card":"",
+		"focus_row":[],},
+	"Hojo Tokimune" : {
+		"image_name":"Hojo_Tokimune",
+		"civilization":"Japan",
+		"focus_card":"",
+		"focus_row":[],},
+	"Jadwiga" : {
+		"image_name":"Jadwiga",
+		"civilization":"Poland",
+		"focus_card":"",
+		"focus_row":[],},
+	"Montezuma" : {
+		"image_name":"Montezuma",
+		"civilization":"Aztec",
+		"focus_card":"",
+		"focus_row":[],},
+	"Pachacuti" : {
+		"image_name":"Pachacuti",
+		"civilization":"Inca",
+		"focus_card":"",
+		"focus_row":[],},
+	"Qin Shi Huang" : {
+		"image_name":"Qin_Shi_Huang",
+		"civilization":"China",
+		"focus_card":"",
+		"focus_row":[],},
+	"Shaka" : {
+		"image_name":"Shaka",
+		"civilization":"Zulu",
+		"focus_card":"",
+		"focus_row":[],},
+	"Suleiman" : {
+		"image_name":"Suleiman",
+		"civilization":"Ottoman",
+		"focus_card":"",
+		"focus_row":[],},
+	"Tamar" : {
+		"image_name":"Tamar",
+		"civilization":"Georgia",
+		"focus_card":"",
+		"focus_row":[],},
+	"Teddy Roosevelt" : {
+		"image_name":"Teddy_Roosevelt",
+		"civilization":"America",
+		"focus_card":"",
+		"focus_row":[],},
+	"Tomyris" : {
+		"image_name":"Tomyris",
+		"civilization":"Scythia",
+		"focus_card":"",
+		"focus_row":[],},
+	"Trajan" : {
+		"image_name":"Trajan",
+		"civilization":"Rome",
+		"focus_card":"",
+		"focus_row":[],},
+	"Victoria" : {
+		"image_name":"Victoria",
+		"civilization":"England",
+		"focus_card":"",
+		"focus_row":[],},
+	"Wilhelmina" : {
+		"image_name":"Wilhelmina",
+		"civilization":"Netherlands",
+		"focus_card":"",
+		"focus_row":[],},
+}
+
 const FOCUS = {
 	
 	"Early Empire" : {

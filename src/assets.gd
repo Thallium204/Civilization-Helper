@@ -27,3 +27,15 @@ func get_terrain_image(terrain_id):
 
 func get_government_image_by_focus_type(focus_type):
 	return load("res://assets/slot shift images/"+gl.GOVERNMENT_NAMES_PATHLIST[focus_type]+".png")
+
+
+func get_leader_portrait(leader_name):
+	var dat = data.LEADER[leader_name]
+	return load("res://assets/leaders/portraits/"+dat.image_name+".png")
+
+func get_leader_flag(leader_name):
+	var dat = data.LEADER[leader_name]
+	return load("res://assets/leaders/flags/"+dat.civilization+".png")
+
+
+
