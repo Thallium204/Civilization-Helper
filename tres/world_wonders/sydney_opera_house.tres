@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Sydney_Opera_House.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Sydney Opera House"
+era_type = 2
+image = ExtResource( 3 )
+focus_type = 0
+ability_text = "Rival control tokens contribute toward your cities' maturity."
+cost_base = 10
+primary_resource_data = ExtResource( 2 )
+secondary_resource_data = ExtResource( 4 )

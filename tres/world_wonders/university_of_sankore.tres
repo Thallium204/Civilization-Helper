@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/University_of_Sankore.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "University of Sankore"
+era_type = 1
+image = ExtResource( 2 )
+focus_type = 5
+ability_text = "At the end of your turn, if you replaced 1 or more of your focus cards this turn, you may swap any 2 non-science cards in your focus row."
+cost_base = 9
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

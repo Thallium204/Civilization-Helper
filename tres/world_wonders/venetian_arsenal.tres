@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Alhambra.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Venetian Arsenal"
+era_type = 1
+image = ExtResource( 2 )
+focus_type = 4
+ability_text = "Once per turn, after you resolve the card in the fifth slot of your focus row, you may resolve it again, treating it as if it was in the first slot."
+cost_base = 10
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

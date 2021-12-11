@@ -8,7 +8,7 @@
 [ext_resource path="res://src/TileSelector.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/theme_default.tres" type="Theme" id=8]
 [ext_resource path="res://src/MenuButton.gd" type="Script" id=9]
-[ext_resource path="res://resources/btngroup_menu.tres" type="ButtonGroup" id=10]
+[ext_resource path="res://tres/btngroup_menu.tres" type="ButtonGroup" id=10]
 [ext_resource path="res://src/BarbarianMovement.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/LeaderSelector.tscn" type="PackedScene" id=12]
 

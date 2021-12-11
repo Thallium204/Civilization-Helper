@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Cristo_Redentor.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Cristo Redentor"
+era_type = 2
+image = ExtResource( 3 )
+focus_type = 0
+ability_text = "When you build or capture this wonder, choose a rival non-capital city (without an army in its space) within 3 spaces of this wonder. Replace that city with 1 of your unused cities."
+cost_base = 11
+primary_resource_data = ExtResource( 2 )
+secondary_resource_data = ExtResource( 4 )

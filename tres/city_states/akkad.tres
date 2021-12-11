@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/resources/data_city_state.gd" type="Script" id=1]
+[ext_resource path="res://assets/state images/Akkad.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Akkad"
+image = ExtResource( 2 )
+focus_type = 4
+ability_text = ""

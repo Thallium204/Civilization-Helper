@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "civ_BarbarianData",
+"language": "GDScript",
+"path": "res://src/resources/data_barbarian.gd"
+}, {
 "base": "Node2D",
 "class": "civ_CMPInterface",
 "language": "GDScript",
@@ -19,21 +24,70 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/cmp/cmp_visual.gd"
 }, {
+"base": "Resource",
+"class": "civ_CityStateData",
+"language": "GDScript",
+"path": "res://src/resources/data_city_state.gd"
+}, {
 "base": "Button",
 "class": "civ_MenuButton",
 "language": "GDScript",
 "path": "res://src/MenuButton.gd"
 }, {
+"base": "Resource",
+"class": "civ_ResourceData",
+"language": "GDScript",
+"path": "res://src/resources/data_resource.gd"
+}, {
 "base": "Control",
 "class": "civ_SlotShifter",
 "language": "GDScript",
 "path": "res://src/SlotShifter.gd"
+}, {
+"base": "Node2D",
+"class": "civ_Space",
+"language": "GDScript",
+"path": "res://src/Space.gd"
+}, {
+"base": "Resource",
+"class": "civ_SpaceData",
+"language": "GDScript",
+"path": "res://src/resources/data_space.gd"
+}, {
+"base": "Resource",
+"class": "civ_TerrainData",
+"language": "GDScript",
+"path": "res://src/resources/data_terrain.gd"
+}, {
+"base": "civ_TerrainData",
+"class": "civ_TerrainWonderData",
+"language": "GDScript",
+"path": "res://src/resources/data_terrain_wonder.gd"
+}, {
+"base": "Resource",
+"class": "civ_TileData",
+"language": "GDScript",
+"path": "res://src/resources/data_tile.gd"
+}, {
+"base": "Resource",
+"class": "civ_WorldWonderData",
+"language": "GDScript",
+"path": "res://src/resources/data_world_wonder.gd"
 } ]
 _global_script_class_icons={
+"civ_BarbarianData": "",
 "civ_CMPInterface": "",
 "civ_CMPVisual": "",
+"civ_CityStateData": "",
 "civ_MenuButton": "",
-"civ_SlotShifter": ""
+"civ_ResourceData": "",
+"civ_SlotShifter": "",
+"civ_Space": "",
+"civ_SpaceData": "",
+"civ_TerrainData": "",
+"civ_TerrainWonderData": "",
+"civ_TileData": "",
+"civ_WorldWonderData": ""
 }
 
 [application]
@@ -48,6 +102,7 @@ config/quit_on_go_back=false
 gl="*res://src/globals.gd"
 data="*res://src/data.gd"
 assets="*res://src/assets.gd"
+res="*res://src/resources.gd"
 
 [display]
 
@@ -60,7 +115,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/event_system_plugin/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [physics]
 

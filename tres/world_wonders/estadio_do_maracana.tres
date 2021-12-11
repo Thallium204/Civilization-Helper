@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=3]
+[ext_resource path="res://assets/wonder images/Estadio_do_Maracana.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Estádio do Maracanã"
+era_type = 2
+image = ExtResource( 4 )
+focus_type = 1
+ability_text = "After you resolve a focus card other than your economy card, you may resolve and reset your economy card."
+cost_base = 10
+primary_resource_data = ExtResource( 3 )
+secondary_resource_data = ExtResource( 2 )

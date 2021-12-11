@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Stonehenge.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Stonehenge"
+era_type = 0
+image = ExtResource( 3 )
+focus_type = 0
+ability_text = "After you place a control token on a hill space, you may place a control token on 1 or more hill spaces (which can trigger this effect again)."
+cost_base = 7
+primary_resource_data = ExtResource( 2 )
+secondary_resource_data = ExtResource( 4 )

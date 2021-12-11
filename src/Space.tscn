@@ -1,22 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Space.gd" type="Script" id=1]
 [ext_resource path="res://src/cmp/cmp_visual.gd" type="Script" id=2]
-[ext_resource path="res://assets/terrain images/grassland.png" type="Texture" id=3]
-[ext_resource path="res://materials/mat_space.tres" type="Material" id=4]
+[ext_resource path="res://assets/terrain images/desert.png" type="Texture" id=3]
+[ext_resource path="res://src/materials/mat_space.tres" type="Material" id=4]
 [ext_resource path="res://src/cmp/cmp_interface.gd" type="Script" id=5]
+[ext_resource path="res://tres/tiles/test_space.tres" type="Resource" id=6]
+[ext_resource path="res://assets/barbarian bits/spawn/a.png" type="Texture" id=7]
 
 [node name="Space" type="Node2D"]
-position = Vector2( 1121.33, 650.119 )
 script = ExtResource( 1 )
+space_data = ExtResource( 6 )
 
 [node name="CMPInterface" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="body" type="StaticBody2D" parent="CMPInterface"]
-input_pickable = true
 
 [node name="shape" type="CollisionPolygon2D" parent="CMPInterface/body"]
+position = Vector2( 0, -3 )
 polygon = PoolVector2Array( 80, -43, 80, 50, 0, 94, -80, 50, -80, -43, 0, -90 )
 
 [node name="CMPVisual" type="Node2D" parent="."]
@@ -25,8 +27,12 @@ script = ExtResource( 2 )
 
 [node name="SpriteTerrain" type="Sprite" parent="CMPVisual"]
 use_parent_material = true
-position = Vector2( 0, 3 )
 texture = ExtResource( 3 )
+
+[node name="SpriteSpawn" type="Sprite" parent="CMPVisual"]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
 
 [connection signal="input_event" from="CMPInterface/body" to="CMPInterface" method="_on_body_input_event"]
 [connection signal="mouse_entered" from="CMPInterface/body" to="CMPInterface" method="_on_body_mouse_entered"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Potala_Palace.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Potala Palace"
+era_type = 1
+image = ExtResource( 3 )
+focus_type = 5
+ability_text = "You can have 4 diplomacy cards from each other player.
+
+When you build this wonder, you may take a total of 3 diplomacy cards of your choice from other players."
+cost_base = 10
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 2 )

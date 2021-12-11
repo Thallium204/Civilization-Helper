@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Ruhr_Valley.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Ruhr Valley"
+era_type = 2
+image = ExtResource( 2 )
+focus_type = 4
+ability_text = "When defending, increase your combat value by 5."
+cost_base = 11
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

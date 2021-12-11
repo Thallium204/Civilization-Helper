@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Colossus.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Colossus"
+era_type = 0
+image = ExtResource( 2 )
+focus_type = 1
+ability_text = "When resolving your economy focus card, your caravans can move a total of 6 additional spaces, divided as you choose."
+cost_base = 7
+primary_resource_data = ExtResource( 3 )
+secondary_resource_data = ExtResource( 4 )

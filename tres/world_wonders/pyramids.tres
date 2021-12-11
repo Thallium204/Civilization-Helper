@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Pyramids.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Pyramids"
+era_type = 0
+image = ExtResource( 2 )
+focus_type = 5
+ability_text = "When you build this wonder, choose up to 3 level-I cards in your focus row. Replace each with a level-II card of the same type."
+cost_base = 9
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

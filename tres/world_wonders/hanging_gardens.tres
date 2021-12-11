@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Hanging_Gardens.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Hanging Gardens"
+era_type = 0
+image = ExtResource( 2 )
+focus_type = 0
+ability_text = "At the start of your turn, you may place 1 control token on a space of terrain difficulty 4 or less that is adjacent to a friendly city."
+cost_base = 8
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

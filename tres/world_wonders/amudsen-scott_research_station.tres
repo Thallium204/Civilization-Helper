@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Amundsen-Scott_Research_Station.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Amundsen-Scott Research Station"
+era_type = 2
+image = ExtResource( 3 )
+focus_type = 5
+ability_text = "When you build this wonder, build a city on any legal space of the edge of the map and place this wonder in that city. Then place up to 2 control tokens in spaces adjacent to that city."
+cost_base = 10
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 2 )

@@ -5,7 +5,7 @@ var auto_detect = false setget set_auto_detect
 
 var player_id = 0 setget set_player_id
 var card_name = "Default" setget set_card_name
-var focus_type = gl.FOCUS_CULTURE setget set_focus_type
+var focus_type = gl.FocusType.CULTURE setget set_focus_type
 var tech_level = gl.TECH_LEVEL_I setget set_tech_level
 var description = "lorem ipsum" setget set_description
 

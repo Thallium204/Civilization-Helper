@@ -1,13 +1,13 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://fonts/font_wonder_name.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/font_era_name.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/wonder cards/era name bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/wonder cards/wonder image backing.png" type="Texture" id=4]
 [ext_resource path="res://assets/wonder cards/wonder name bg.png" type="Texture" id=5]
-[ext_resource path="res://assets/wonder images/Great_Zimbabwe.png" type="Texture" id=6]
+[ext_resource path="res://assets/focus types/science.png" type="Texture" id=6]
 [ext_resource path="res://assets/wonder cards/rivet.png" type="Texture" id=7]
-[ext_resource path="res://assets/focus types/economy.png" type="Texture" id=8]
+[ext_resource path="res://assets/wonder images/Great_Library.png" type="Texture" id=8]
 [ext_resource path="res://assets/wonder cards/wonder image border.png" type="Texture" id=9]
 [ext_resource path="res://assets/wonder cards/world lines.png" type="Texture" id=10]
 [ext_resource path="res://assets/wonder cards/wonder focus decorator.png" type="Texture" id=11]
@@ -17,10 +17,11 @@
 [ext_resource path="res://fonts/MinionPro-Bold.otf" type="DynamicFontData" id=15]
 [ext_resource path="res://assets/resources/gear.png" type="Texture" id=16]
 [ext_resource path="res://assets/wonder cards/cost decorator.png" type="Texture" id=17]
-[ext_resource path="res://assets/resources/oil.png" type="Texture" id=18]
+[ext_resource path="res://assets/resources/mercury.png" type="Texture" id=18]
 [ext_resource path="res://assets/resources/diamond.png" type="Texture" id=19]
 [ext_resource path="res://shaders/shader_highlight.tres" type="Material" id=20]
 [ext_resource path="res://assets/wonder cards/resource bg.png" type="Texture" id=21]
+[ext_resource path="res://tres/world_wonders/great_library.tres" type="Resource" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -36,16 +37,16 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-wonder_name = "Great Zimbabwe"
-auto_detect = false
-era_type = 1
-focus_type = 1
-description = "You can place trade tokens on this card instead of on your focus cards, up to a limit of 4.
-
-At the start of your turn, you may move trade tokens from this card to cards in your focus row."
-base_cost = 9
-cost_mod = 0
-additional_resource = 2
+world_wonder_data = ExtResource( 22 )
+wonder_name_label = NodePath("NameBG/Label")
+wonder_image = NodePath("ImageBorder/WonderImage")
+focus_bg = NodePath("ImageBorder/BG")
+era_label = NodePath("EraBG/Label")
+focus_texture = NodePath("FocusDecorator/FocusImage")
+ability_text_label = NodePath("AbilityText/Label")
+wonder_cost = NodePath("CostDecorator/Label")
+primary_resource_image = NodePath("InnateResource/Image")
+secondary_resource_image = NodePath("SecondaryResource/Image")
 
 [node name="BG" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -85,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Great Zimbabwe"
+text = "Great Library"
 align = 1
 valign = 1
 __meta__ = {
@@ -114,7 +115,7 @@ margin_top = 2.0
 margin_bottom = -0.209991
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Medieval Era"
+text = "Ancient Era"
 align = 1
 valign = 1
 __meta__ = {
@@ -172,7 +173,7 @@ __meta__ = {
 }
 
 [node name="BG" type="NinePatchRect" parent="ImageBorder"]
-self_modulate = Color( 0.533333, 0.54902, 0.317647, 1 )
+self_modulate = Color( 0.0862745, 0.0941176, 0.294118, 1 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -205,7 +206,7 @@ __meta__ = {
 [node name="WonderImage" type="TextureRect" parent="ImageBorder"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -235,11 +236,11 @@ margin_left = 25.0
 margin_top = 28.0
 margin_right = -25.442
 margin_bottom = -38.372
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
-[node name="Decription" type="NinePatchRect" parent="."]
+[node name="AbilityText" type="NinePatchRect" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.883
@@ -255,7 +256,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Decription"]
+[node name="Label" type="Label" parent="AbilityText"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 18.0
@@ -264,9 +265,7 @@ margin_right = -20.0
 margin_bottom = 25.194
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 13 )
-text = "You can place trade tokens on this card instead of on your focus cards, up to a limit of 4.
-
-At the start of your turn, you may move trade tokens from this card to cards in your focus row."
+text = "When your caravan moves to another player's city, you may gain a focus card of the same type and tech level as a card in that player's focus row, replacing your card of the same type."
 align = 1
 autowrap = true
 __meta__ = {
@@ -293,7 +292,7 @@ margin_right = -0.355995
 margin_bottom = 0.867981
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "9"
+text = "8"
 align = 1
 valign = 1
 __meta__ = {
@@ -315,7 +314,7 @@ __meta__ = {
 [node name="Image" type="TextureRect" parent="InnateResource"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -335,7 +334,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AdditionalResource" type="TextureRect" parent="."]
+[node name="SecondaryResource" type="TextureRect" parent="."]
 anchor_left = 0.77
 anchor_top = 0.888
 anchor_right = 0.932
@@ -347,17 +346,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Image" type="TextureRect" parent="AdditionalResource"]
+[node name="Image" type="TextureRect" parent="SecondaryResource"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="TextureRect" parent="AdditionalResource"]
+[node name="BG" type="TextureRect" parent="SecondaryResource"]
 modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
 show_behind_parent = true
 anchor_left = 0.14

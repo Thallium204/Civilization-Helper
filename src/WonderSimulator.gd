@@ -3,28 +3,28 @@ extends Control
 onready var era_label = $EraPanel/Label
 
 onready var stack_data = {
-	gl.FOCUS_CULTURE : {
+	gl.FocusType.CULTURE : {
 		"stack":[],
 		"timeline":[0],
 		"slot":$HBoxCards/Culture,
 		"button":$HBoxBuild/Culture,
 		"card":null
 	},
-	gl.FOCUS_ECONOMY : {
+	gl.FocusType.ECONOMY : {
 		"stack":[],
 		"timeline":[0],
 		"slot":$HBoxCards/Economy,
 		"button":$HBoxBuild/Economy,
 		"card":null
 	},
-	gl.FOCUS_MILITARY : {
+	gl.FocusType.MILITARY : {
 		"stack":[],
 		"timeline":[0],
 		"slot":$HBoxCards/Military,
 		"button":$HBoxBuild/Military,
 		"card":null
 	},
-	gl.FOCUS_SCIENCE : {
+	gl.FocusType.SCIENCE : {
 		"stack":[],
 		"timeline":[0],
 		"slot":$HBoxCards/Science,
@@ -50,49 +50,49 @@ func create_stack(focus_type,context):
 	var temp_stack:Array = []
 	var main_stack = []
 	
-	temp_stack = context[focus_type][gl.ERA_ANCIENT]
+	temp_stack = context[focus_type][gl.EraType.ANCIENT]
 	temp_stack.shuffle()
 	temp_stack.pop_front()
 	main_stack += temp_stack
 	
-	temp_stack = context[focus_type][gl.ERA_MEDIEVAL]
+	temp_stack = context[focus_type][gl.EraType.MEDIEVAL]
 	temp_stack.shuffle()
 	temp_stack.pop_front()
 	main_stack += temp_stack
 	
-	temp_stack = context[focus_type][gl.ERA_MODERN]
+	temp_stack = context[focus_type][gl.EraType.MODERN]
 	temp_stack.shuffle()
 	main_stack += temp_stack
 	
 	return main_stack
 
 func read_timeline():
-	var latest_era = gl.ERA_ANCIENT
+	var latest_era = gl.EraType.ANCIENT
 	for focus_type in stack_data.keys():
 		var dat = stack_data[focus_type]
 		var wonder_index = int(floor(dat.timeline[-1] / 2.0))
 		var discount = -int(dat.timeline[-1] % 2)
-		var wonder_name = get_wonder_from_stack(dat.stack,wonder_index)
-		make_current(wonder_name,discount,dat)
+		var wonder_id = get_wonder_id_from_stack(dat.stack,wonder_index)
+		make_current(wonder_id,discount,dat)
 		if dat.card:
-			latest_era = max(latest_era,dat.card.era_type)
+			latest_era = max(latest_era,dat.card.world_wonder_data.era_type)
 		else:
-			latest_era = gl.ERA_MODERN
+			latest_era = gl.EraType.MODERN
 	update_era_type_UI(latest_era)
 	update_build_UI()
 
-func get_wonder_from_stack(stack,index):
+func get_wonder_id_from_stack(stack,index):
 	if index >= stack.size():
-		return ""
+		return null
 	else:
 		return stack[index]
 
-func make_current(wonder_name,discount,dat):
+func make_current(wonder_id,discount,dat):
 	if dat.card:
 		dat.card.free()
 	dat.card = null
-	if wonder_name:
-		dat.card = gl.get_wonder_card(wonder_name)
+	if wonder_id is int:
+		dat.card = res.get_wonder_card(wonder_id)
 		dat.card.cost_mod = discount
 		dat.slot.add_child(dat.card)
 
@@ -153,7 +153,7 @@ func _on_Reset_pressed():
 		var array = []
 		for focus_type in gl.WONDER_CONTEXT.keys():
 			var context = gl.WONDER_CONTEXT[focus_type]
-			var list = context[gl.ERA_ANCIENT] + context[gl.ERA_MEDIEVAL] + context[gl.ERA_MODERN]
+			var list = context[gl.EraType.ANCIENT] + context[gl.EraType.MEDIEVAL] + context[gl.EraType.MODERN]
 			list.shuffle()
 			array.append(list)
 		for pos in array[0].size():

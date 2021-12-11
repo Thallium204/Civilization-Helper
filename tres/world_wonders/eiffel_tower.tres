@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Eiffel_Tower.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Eiffel Tower"
+era_type = 2
+image = ExtResource( 3 )
+focus_type = 0
+ability_text = "At the start of your turn, you may choose 2 rival control tokens on the map belonging to the same player. That player replaces 1 of those tokens with 1 of your unused unreinforced control tokens."
+cost_base = 12
+primary_resource_data = ExtResource( 2 )
+secondary_resource_data = ExtResource( 4 )

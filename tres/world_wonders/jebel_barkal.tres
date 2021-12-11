@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://assets/wonder images/Jebel_Barkal.png" type="Texture" id=2]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=3]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Jebel Barkal"
+era_type = 0
+image = ExtResource( 2 )
+focus_type = 4
+ability_text = "When attacking or defending, you can spend resource tokens (not natural wonder tokens) to increase your combat value by 2 for each resource spent."
+cost_base = 7
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 3 )

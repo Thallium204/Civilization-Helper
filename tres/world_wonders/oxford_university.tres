@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Oxford_University.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Oxford University"
+era_type = 2
+image = ExtResource( 3 )
+focus_type = 5
+ability_text = "When you replace a focus card other than a science focus card, you do not have to replace it with a card of the same type."
+cost_base = 9
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 2 )

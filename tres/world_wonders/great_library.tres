@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/diamond.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Great_Library.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Great Library"
+era_type = 0
+image = ExtResource( 3 )
+focus_type = 5
+ability_text = "When your caravan moves to another player's city, you may gain a focus card of the same type and tech level as a card in that player's focus row, replacing your card of the same type."
+cost_base = 8
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 2 )

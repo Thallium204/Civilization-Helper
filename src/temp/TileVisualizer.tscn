@@ -1,0 +1,109 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/temp/TileVisualizer.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/oil.tres" type="Resource" id=2]
+[ext_resource path="res://src/Space.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/resources/data_space.gd" type="Script" id=4]
+[ext_resource path="res://tres/terrain/grassland.tres" type="Resource" id=5]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=6]
+[ext_resource path="res://tres/terrain/hills.tres" type="Resource" id=7]
+[ext_resource path="res://tres/tiles/3b.tres" type="Resource" id=8]
+[ext_resource path="res://tres/terrain/desert.tres" type="Resource" id=10]
+[ext_resource path="res://tres/terrain/forest.tres" type="Resource" id=11]
+[ext_resource path="res://tres/barbarians/c.tres" type="Resource" id=12]
+
+[sub_resource type="Resource" id=1]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 10 )
+spawn_data = ExtResource( 12 )
+
+[sub_resource type="Resource" id=2]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 5 )
+
+[sub_resource type="Resource" id=3]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 10 )
+
+[sub_resource type="Resource" id=4]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 7 )
+spawn_data = ExtResource( 2 )
+
+[sub_resource type="Resource" id=5]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 10 )
+
+[sub_resource type="Resource" id=6]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 7 )
+
+[sub_resource type="Resource" id=7]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 10 )
+
+[sub_resource type="Resource" id=8]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 11 )
+
+[sub_resource type="Resource" id=9]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 11 )
+
+[sub_resource type="Resource" id=10]
+resource_local_to_scene = true
+script = ExtResource( 4 )
+terrain_data = ExtResource( 10 )
+spawn_data = ExtResource( 6 )
+
+[node name="TileVisualizer" type="Node2D"]
+script = ExtResource( 1 )
+tile_data = ExtResource( 8 )
+
+[node name="Space0" parent="." instance=ExtResource( 3 )]
+space_data = SubResource( 1 )
+
+[node name="Space1" parent="." instance=ExtResource( 3 )]
+position = Vector2( -162, 0 )
+space_data = SubResource( 2 )
+
+[node name="Space2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -81, 140.3 )
+space_data = SubResource( 3 )
+
+[node name="Space3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 81, 140.3 )
+space_data = SubResource( 4 )
+
+[node name="Space4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 162, 0 )
+space_data = SubResource( 5 )
+
+[node name="Space5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 81, -140.3 )
+space_data = SubResource( 6 )
+
+[node name="Space6" parent="." instance=ExtResource( 3 )]
+position = Vector2( -81, -140.3 )
+space_data = SubResource( 7 )
+
+[node name="Space7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -243, -140.3 )
+space_data = SubResource( 8 )
+
+[node name="Space8" parent="." instance=ExtResource( 3 )]
+position = Vector2( -162, -280.6 )
+space_data = SubResource( 9 )
+
+[node name="Space9" parent="." instance=ExtResource( 3 )]
+position = Vector2( -324, -280.6 )
+space_data = SubResource( 10 )

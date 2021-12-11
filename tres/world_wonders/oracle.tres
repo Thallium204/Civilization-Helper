@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://src/resources/data_world_wonder.gd" type="Script" id=1]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=2]
+[ext_resource path="res://assets/wonder images/Oracle.png" type="Texture" id=3]
+[ext_resource path="res://tres/resources/mercury.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Oracle"
+era_type = 0
+image = ExtResource( 3 )
+focus_type = 5
+ability_text = "At the start of your turn, you may swap 2 adjacent cards in your focus row."
+cost_base = 8
+primary_resource_data = ExtResource( 4 )
+secondary_resource_data = ExtResource( 2 )
