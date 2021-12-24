@@ -1,9 +1,13 @@
+class_name civ_WORLD
 extends Node2D
 
 signal move_mode_movement(relative)
 
 const space_load = preload("res://src/Space.tscn")
 const MIN_ADJACENCIES_ALLOWED = 4
+
+var TILE_STACK = []
+var SPAWN_STACK = []
 
 var move_mode = false setget set_move_mode
 var move_drag = false
@@ -19,8 +23,8 @@ var additional_exceptions = []
 onready var camera = $Camera2D
 
 func set_spaces_moving(new_spaces_moving):
-	if new_spaces_moving.empty():
-		for Space in spaces_moving:
+	if new_spaces_moving.empty(): # if we've cleared the moving spaces
+		for Space in spaces_moving: # disable their move_mode
 			Space.move_mode = false
 			disconnect("move_mode_movement",Space,"move_self")
 			
@@ -34,9 +38,16 @@ func set_move_mode(new_move_mode):
 	move_mode = new_move_mode
 	set_spaces_pickable(not move_mode)
 
+
+
+
+func _init():
+	game.WORLD_NODE = self
+
 func _ready():
 	randomize()
 
+# Adds the Space to space_coords and updates the coord rect
 func add_coord(coord,Space):
 	space_coords[coord] = Space
 	coord_rect.position.x = min(coord_rect.position.x,coord.x)
@@ -44,12 +55,7 @@ func add_coord(coord,Space):
 	coord_rect.end.x = max(coord_rect.end.x,coord.x)
 	coord_rect.end.y = max(coord_rect.end.y,coord.y)
 
-func trigger_detections():
-	var spaces = get_tree().get_nodes_in_group("space")
-	for space in spaces:
-		if space is civ_Space:
-			space.set_detect_adjacent_spaces()
-
+# Enables World/Space move_mode relation and populates tile
 func spawn_tile():
 	
 	if move_mode:
@@ -73,10 +79,11 @@ func spawn_tile():
 	
 	return true
 
+# Add the space as a child of the World node
 func add_space(Space:civ_Space):
 	add_child(Space)
 
-
+# Disables World/Space move_mode relation and populates tile
 func place_tile():
 	
 	if not move_mode:
@@ -91,6 +98,7 @@ func place_tile():
 			var coord = gl.position_to_coord(Space.position)
 			add_coord(coord,Space)
 			Space.z_index = coord.y
+			Space.populate_space()
 	
 	# Scan for enclosed void
 	var enclosed_coords_array = get_enclosed_coords_array()
@@ -101,11 +109,11 @@ func place_tile():
 			Space.space_data = res.WATER_SPACE_DATA
 			add_space(Space)
 			add_coord(coord,Space)
+			Space.populate_space()
 	
 	self.spaces_moving = []
 	self.move_mode = false
-	
-	#trigger_detections()
+
 
 func auto_spawn_and_place_tile():
 	
@@ -115,21 +123,22 @@ func auto_spawn_and_place_tile():
 	if not spawn_tile():
 		return false
 	
-	var options = [] # [{position = Vector2(), degrees = 60}]
-	options = get_tile_placement_options()
-	if options.empty():
+	var options_array = [] # [{position = Vector2(), degrees = 60}]
+	options_array = get_tile_placement_options()
+	if options_array.empty():
 		return false
-	var option = select_tile_option(options)
+	var option = select_tile_option(options_array)
 	move_tile_to_position(option.position)
 	rotate_tile(option.degrees)
 	place_tile()
 
-func select_tile_option(options): # [{position = Vector2(), degrees = 60}]
-	options.shuffle()
-	return options[0]
+# Returns random option from options_array
+func select_tile_option(options_array): # [{position = Vector2(), degrees = 60}]
+	options_array.shuffle()
+	return options_array[0]
 
 func get_tile_placement_options():
-	var options = [] # {position:degrees}
+	var options_array = [] # {position:degrees}
 	for degrees in [0,60,120,180,240,300]:
 		rotate_tile(degrees)
 		for x_coord in range(coord_rect.position.x-4,coord_rect.end.x+5):
@@ -137,8 +146,8 @@ func get_tile_placement_options():
 				var target_position = gl.coord_to_position(Vector2(x_coord+(y_coord % 2) * 0.5,y_coord))+Vector2(1,0)
 				move_tile_to_position(target_position)
 				if is_valid_tile_placement():
-					options.append( {"position":target_position,"degrees":degrees} )
-	return options
+					options_array.append( {"position":target_position,"degrees":degrees} )
+	return options_array
 
 func get_x_range(from,to):
 	var values = []
@@ -311,6 +320,5 @@ func _unhandled_input(event):
 		elif pan_drag:
 			
 			camera.position -= event.relative * camera.zoom
-
 
 

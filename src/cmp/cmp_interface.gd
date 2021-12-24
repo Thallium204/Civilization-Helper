@@ -16,31 +16,6 @@ func set_is_pickable(new_is_pickable):
 		body.input_pickable = is_pickable
 
 
-#func get_adjacent_spaces(global_pos,space_exceptions=[get_parent()]):
-#	var body_exceptions = []
-#	for Space in space_exceptions:
-#		body_exceptions.append(Space.CMPInterface.body)
-#	var space_state = get_world_2d().direct_space_state
-#	var adjacent_spaces = [null,null,null,null,null,null]
-#	for pos in 6:
-#		var direction = gl.DIRECTIONS[pos]
-#		var dict = space_state.intersect_ray(global_pos,global_pos+direction*gl.HEX_X_VECTOR.x,body_exceptions)
-#		if dict:
-#			var Interface = dict.collider.get_parent()
-#			adjacent_spaces[pos] = Interface.get_parent()
-#	return adjacent_spaces
-#
-#
-#func is_hex_taken(global_pos):
-#	var space_state = get_world_2d().direct_space_state
-#	for pos in 6:
-#		var direction = gl.DIRECTIONS[pos]
-#		var dict = space_state.intersect_ray(global_pos,global_pos+direction*gl.HEX_X_VECTOR.x/3.0,[body])
-#		if dict:
-#			return true
-#	return false
-
-
 func _on_body_mouse_entered():
 	emit_signal("hovering_changed",true)
 

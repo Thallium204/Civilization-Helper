@@ -4,7 +4,26 @@ const wonder_card_load = preload("res://src/WonderCard.tscn")
 const focus_card_load = preload("res://src/FocusCard.tscn")
 
 static func get_random_tile_data() -> civ_TileData:
-	return TILES[randi()%TILES.size()]
+	return (TILES+CAPITAL_TILES)[randi()%(TILES.size()+CAPITAL_TILES.size())]
+
+const CAPITAL_SPAWN_IMAGE = preload("res://assets/cities/spawn.png")
+const CITY_STATE_IMAGE = preload("res://assets/cities/city_default.png")
+
+const COLORS = [
+	preload("res://tres/colors/red.tres"),
+	preload("res://tres/colors/blue.tres"),
+	preload("res://tres/colors/green.tres"),
+	preload("res://tres/colors/orange.tres"),
+	preload("res://tres/colors/purple.tres"),
+]
+
+const CIVILIZATIONS = [
+	preload("res://tres/civilizations/america.tres"),
+	preload("res://tres/civilizations/egypt.tres"),
+	preload("res://tres/civilizations/japan.tres"),
+	preload("res://tres/civilizations/nubia.tres"),
+	preload("res://tres/civilizations/sumeria.tres"),
+]
 
 const TILES = [
 	preload("res://tres/tiles/1a.tres"),
@@ -13,6 +32,25 @@ const TILES = [
 	preload("res://tres/tiles/2b.tres"),
 	preload("res://tres/tiles/3a.tres"),
 	preload("res://tres/tiles/3b.tres"),
+	preload("res://tres/tiles/4a.tres"),
+	preload("res://tres/tiles/4b.tres"),
+	preload("res://tres/tiles/5a.tres"),
+	preload("res://tres/tiles/5b.tres"),
+	preload("res://tres/tiles/6a.tres"),
+	preload("res://tres/tiles/6b.tres"),
+]
+
+const CAPITAL_TILES = [
+	preload("res://tres/tiles/7a.tres"),
+	preload("res://tres/tiles/7b.tres"),
+	preload("res://tres/tiles/9a.tres"),
+	preload("res://tres/tiles/9b.tres"),
+	preload("res://tres/tiles/11a.tres"),
+	preload("res://tres/tiles/11b.tres"),
+	preload("res://tres/tiles/16a.tres"),
+	preload("res://tres/tiles/16b.tres"),
+	preload("res://tres/tiles/17a.tres"),
+	preload("res://tres/tiles/17b.tres"),
 ]
 
 const WATER_SPACE_DATA:civ_SpaceData = preload("res://tres/spaces/water_space.tres")

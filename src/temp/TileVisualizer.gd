@@ -21,7 +21,7 @@ func update_spaces():
 	var space_array = get_children()
 	if space_array.empty():
 		return
-	print(tile_data.tile_type)
+	
 	var position_array = gl.get_tile_positions(tile_data.tile_type)
 	for id in tile_data.space_data_array.size():
 		var space:civ_Space = space_array[id]

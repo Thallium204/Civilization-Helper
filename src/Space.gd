@@ -46,6 +46,9 @@ func set_is_selected(new_is_selected):
 func snap_to_grid(_err=false):
 	position = gl.snap_to_hex_grid(position)
 
+
+
+
 func move_self(relative):
 	position += relative
 
@@ -58,6 +61,7 @@ func update_all_UI():
 	if CMPVisual:
 		CMPVisual.update_terrain(space_data.terrain_data)
 		CMPVisual.update_spawn(space_data.spawn_data)
+		CMPVisual.update_construct(space_data.construct_data)
 	set_is_selectable(is_selectable)
 	set_is_selected(is_selected)
 
@@ -72,7 +76,19 @@ func connect_components():
 	_err = CMPInterface.connect("hovering_changed",self,"set_is_hovering")
 	_err = CMPInterface.connect("button_input",self,"interpret_event")
 
-
+func populate_space():
+	if space_data.spawn_data is civ_BarbarianData:
+		pass
+	elif space_data.spawn_data is civ_CityStateData:
+		space_data.construct_data = space_data.spawn_data
+	elif space_data.spawn_data is civ_ResourceData:
+		space_data.construct_data = space_data.spawn_data
+	elif space_data.terrain_data is civ_TerrainWonderData:
+		space_data.construct_data = space_data.terrain_data.resource_data
+	elif space_data.spawn_data is civ_CityData:
+		space_data.construct_data = space_data.spawn_data
+	if space_data.spawn_data:
+		print("spawned ",space_data.spawn_data.name)
 
 
 

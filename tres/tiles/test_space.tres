@@ -1,11 +1,13 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://src/resources/data_space.gd" type="Script" id=1]
-[ext_resource path="res://tres/terrain/desert.tres" type="Resource" id=2]
-[ext_resource path="res://tres/barbarians/a.tres" type="Resource" id=3]
+[ext_resource path="res://tres/terrain/grassland.tres" type="Resource" id=2]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
+__meta__ = {
+"update": true
+}
 terrain_data = ExtResource( 2 )
-spawn_data = ExtResource( 3 )
+figure_data_array = [  ]

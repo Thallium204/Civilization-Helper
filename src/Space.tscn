@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Space.gd" type="Script" id=1]
 [ext_resource path="res://src/cmp/cmp_visual.gd" type="Script" id=2]
-[ext_resource path="res://assets/terrain images/desert.png" type="Texture" id=3]
+[ext_resource path="res://assets/terrain images/grassland.png" type="Texture" id=3]
 [ext_resource path="res://src/materials/mat_space.tres" type="Material" id=4]
 [ext_resource path="res://src/cmp/cmp_interface.gd" type="Script" id=5]
 [ext_resource path="res://tres/tiles/test_space.tres" type="Resource" id=6]
-[ext_resource path="res://assets/barbarian bits/spawn/a.png" type="Texture" id=7]
+[ext_resource path="res://fonts/font_focus_description.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/cities/maturity_ring.png" type="Texture" id=9]
+[ext_resource path="res://assets/cities/maturity_ring_over.png" type="Texture" id=10]
 
 [node name="Space" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,7 +34,64 @@ texture = ExtResource( 3 )
 [node name="SpriteSpawn" type="Sprite" parent="CMPVisual"]
 self_modulate = Color( 1, 1, 1, 0.501961 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 7 )
+
+[node name="SpriteConstruct" type="Sprite" parent="CMPVisual"]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="Control" type="Control" parent="CMPVisual/SpriteConstruct"]
+margin_left = -135.0
+margin_top = -155.0
+margin_right = 135.0
+margin_bottom = 155.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaturityBar" type="TextureProgress" parent="CMPVisual/SpriteConstruct/Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -130.0
+margin_right = 130.0
+margin_bottom = 130.0
+mouse_filter = 2
+max_value = 6.0
+texture_over = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
+fill_mode = 4
+tint_over = Color( 0.686275, 0.686275, 0.686275, 1 )
+tint_progress = Color( 0.662745, 1, 0.411765, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CMPVisual/SpriteConstruct/Control"]
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.85
+custom_fonts/font = ExtResource( 8 )
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerImage" type="TextureRect" parent="CMPVisual/SpriteConstruct/Control"]
+anchor_right = 1.0
+anchor_bottom = 0.25
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="input_event" from="CMPInterface/body" to="CMPInterface" method="_on_body_input_event"]
 [connection signal="mouse_entered" from="CMPInterface/body" to="CMPInterface" method="_on_body_mouse_entered"]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://src/resources/data_city.gd" type="Script" id=1]
+[ext_resource path="res://assets/cities/city_ancient.png" type="Texture" id=2]
+[ext_resource path="res://assets/cities/city_medieval.png" type="Texture" id=3]
+[ext_resource path="res://assets/cities/city_industrial.png" type="Texture" id=4]
+[ext_resource path="res://tres/colors/blue.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+is_capital = false
+maturity_level = 0
+name = "Default"
+era_type = 0
+image = ExtResource( 2 )
+player_data = ExtResource( 5 )
+era_images = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]

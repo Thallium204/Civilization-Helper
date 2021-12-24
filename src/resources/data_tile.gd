@@ -4,7 +4,6 @@ class_name civ_TileData
 
 export(String) var tile_name = ""
 export(gl.TileType) var tile_type setget set_tile_type
-export(bool) var is_spawn = false
 export(Array,Resource) var space_data_array = [] setget set_space_data_array
 
 func try_connect_space_data():

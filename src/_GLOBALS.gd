@@ -8,6 +8,7 @@ func focus_to_resource_type(focus_type):
 const HEX_X_VECTOR = Vector2(162.0,0.0)
 #var HEX_Y_VECTOR = HEX_X_VECTOR.rotated(PI/3.0)
 const HEX_Y_VECTOR = Vector2(81.0,140.3)
+const EX_Y_VECTOR = Vector2( 0.5, 0.866049 )
 
 const ADJ_COORDS = [
 	Vector2(1,0),

@@ -4,6 +4,10 @@ extends Node2D
 
 onready var SpriteTerrain = $SpriteTerrain
 onready var SpriteSpawn = $SpriteSpawn
+onready var SpriteConstruct = $SpriteConstruct
+onready var ConstructLabel = $SpriteConstruct/Control/Label
+onready var MaturityBar = $SpriteConstruct/Control/MaturityBar
+onready var PlayerImage = $SpriteConstruct/Control/PlayerImage
 
 func update_terrain(terrain_data:civ_TerrainData):
 	SpriteTerrain.texture = terrain_data.image
@@ -15,8 +19,44 @@ func update_spawn(spawn_data):
 		SpriteSpawn.texture = spawn_data.spawn_image
 	elif spawn_data is civ_CityStateData:
 		SpriteSpawn.texture = spawn_data.image
+	elif spawn_data is civ_CivilizationData:
+		SpriteSpawn.texture = res.CAPITAL_SPAWN_IMAGE
 	else:
 		SpriteSpawn.texture = null
+
+func update_construct(construct_data):
+	MaturityBar.visible = false
+	if construct_data is civ_ControlTokenData:
+		SpriteConstruct.texture = construct_data.image
+		ConstructLabel.text = construct_data.name
+		PlayerImage.texture = construct_data.player_data.color_data.image
+		PlayerImage.modulate = construct_data.player_data.color_data.color
+	elif construct_data is civ_ResourceData:
+		SpriteConstruct.texture = construct_data.image
+		ConstructLabel.text = ""
+		PlayerImage.texture = null
+		PlayerImage.modulate = Color.white
+	elif construct_data is civ_DistrictData:
+		SpriteConstruct.texture = construct_data.image
+		ConstructLabel.text = construct_data.name
+		PlayerImage.texture = construct_data.player_data.color_data.color
+		PlayerImage.modulate = construct_data.player_data.color_data.color
+	elif construct_data is civ_CityData:
+		SpriteConstruct.texture = construct_data.image
+		ConstructLabel.text = construct_data.name
+		PlayerImage.texture = construct_data.player_data.color_data.image
+		PlayerImage.modulate = construct_data.player_data.color_data.color
+		MaturityBar.visible = true
+	elif construct_data is civ_CityStateData:
+		SpriteConstruct.texture = res.CITY_STATE_IMAGE
+		ConstructLabel.text = construct_data.name
+		PlayerImage.texture = construct_data.image
+		PlayerImage.modulate = Color.white
+	else:
+		SpriteConstruct.texture = null
+		ConstructLabel.text = ""
+		PlayerImage.texture = null
+		PlayerImage.modulate = Color.white
 
 func update_hovering(is_hovering):
 	material.set_shader_param("is_hovering",is_hovering)

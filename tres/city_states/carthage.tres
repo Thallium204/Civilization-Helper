@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 name = "Carthage"
 image = ExtResource( 2 )
 focus_type = 4
+ability_text = ""

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://src/resources/data_civilization.gd" type="Script" id=1]
+[ext_resource path="res://assets/leaders/flags/America.png" type="Texture" id=2]
+[ext_resource path="res://assets/leaders/portraits/Teddy_Roosevelt.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+civ_name = "America"
+civ_image = ExtResource( 2 )
+leader_name = "Teddy Roosevelt"
+leader_image = ExtResource( 3 )
+ability_name = "Roosevelt Corollary"
+ability_text = "When you gain or spend a natural wonder token, place it on any card in your focus row.
+
+You can spend a natural wonder token on a focus card either as a trade token on that card or as a resource."
+focus_setup = [ 2, 4, 5, 3, 0, 1 ]
+city_names = [ "Washington", "New York", "St. Louis", "Chicago", "Philadelphia", "Charleston", "San Francisco", "Los Angeles" ]

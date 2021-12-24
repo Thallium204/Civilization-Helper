@@ -6,4 +6,8 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource( 1 )
+__meta__ = {
+"update": true
+}
 terrain_data = ExtResource( 2 )
+figure_data_array = [  ]

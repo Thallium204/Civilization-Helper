@@ -25,14 +25,49 @@ _global_script_classes=[ {
 "path": "res://src/cmp/cmp_visual.gd"
 }, {
 "base": "Resource",
+"class": "civ_CityData",
+"language": "GDScript",
+"path": "res://src/resources/data_city.gd"
+}, {
+"base": "Resource",
 "class": "civ_CityStateData",
 "language": "GDScript",
 "path": "res://src/resources/data_city_state.gd"
+}, {
+"base": "Resource",
+"class": "civ_CivilizationData",
+"language": "GDScript",
+"path": "res://src/resources/data_civilization.gd"
+}, {
+"base": "Resource",
+"class": "civ_ColorData",
+"language": "GDScript",
+"path": "res://src/resources/data_color.gd"
+}, {
+"base": "Resource",
+"class": "civ_ControlTokenData",
+"language": "GDScript",
+"path": "res://src/resources/data_control_token.gd"
+}, {
+"base": "Resource",
+"class": "civ_DistrictData",
+"language": "GDScript",
+"path": "res://src/resources/data_district.gd"
+}, {
+"base": "Resource",
+"class": "civ_FocusTypeData",
+"language": "GDScript",
+"path": "res://src/resources/data_focus_type.gd"
 }, {
 "base": "Button",
 "class": "civ_MenuButton",
 "language": "GDScript",
 "path": "res://src/MenuButton.gd"
+}, {
+"base": "Resource",
+"class": "civ_PlayerData",
+"language": "GDScript",
+"path": "res://src/resources/data_player.gd"
 }, {
 "base": "Resource",
 "class": "civ_ResourceData",
@@ -69,6 +104,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/resources/data_tile.gd"
 }, {
+"base": "Control",
+"class": "civ_UI",
+"language": "GDScript",
+"path": "res://UI.gd"
+}, {
+"base": "Node2D",
+"class": "civ_WORLD",
+"language": "GDScript",
+"path": "res://src/World.gd"
+}, {
 "base": "Resource",
 "class": "civ_WorldWonderData",
 "language": "GDScript",
@@ -78,8 +123,15 @@ _global_script_class_icons={
 "civ_BarbarianData": "",
 "civ_CMPInterface": "",
 "civ_CMPVisual": "",
+"civ_CityData": "",
 "civ_CityStateData": "",
+"civ_CivilizationData": "",
+"civ_ColorData": "",
+"civ_ControlTokenData": "",
+"civ_DistrictData": "",
+"civ_FocusTypeData": "",
 "civ_MenuButton": "",
+"civ_PlayerData": "",
 "civ_ResourceData": "",
 "civ_SlotShifter": "",
 "civ_Space": "",
@@ -87,6 +139,8 @@ _global_script_class_icons={
 "civ_TerrainData": "",
 "civ_TerrainWonderData": "",
 "civ_TileData": "",
+"civ_UI": "",
+"civ_WORLD": "",
 "civ_WorldWonderData": ""
 }
 
@@ -99,10 +153,11 @@ config/quit_on_go_back=false
 
 [autoload]
 
-gl="*res://src/globals.gd"
-data="*res://src/data.gd"
-assets="*res://src/assets.gd"
-res="*res://src/resources.gd"
+gl="*res://src/_GLOBALS.gd"
+data="*res://src/_DATA.gd"
+assets="*res://src/_ASSETS.gd"
+res="*res://src/_RESOURCES.gd"
+game="*res://src/_GAME_LOOP.gd"
 
 [display]
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://src/resources/data_civilization.gd" type="Script" id=1]
+[ext_resource path="res://assets/leaders/flags/Japan.png" type="Texture" id=2]
+[ext_resource path="res://assets/leaders/portraits/Hojo_Tokimune.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+civ_name = "Japan"
+civ_image = ExtResource( 2 )
+leader_name = "Hojo Tokimune"
+leader_image = ExtResource( 3 )
+ability_name = "Divine Wind"
+ability_text = "During your turn, desert and mountain spaces that are adjacent to water or the edge of the map are treated as having a terrain difficulty of 3."
+focus_setup = [ 2, 3, 1, 4, 5, 0 ]
+city_names = [ "Tokyo", "Hiroshima", "Fukushima", "Yokohama", "Nagoya", "Sapporo", "Kobe", "Fukuoka" ]

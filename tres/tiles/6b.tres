@@ -1,0 +1,69 @@
+[gd_resource type="Resource" load_steps=19 format=2]
+
+[ext_resource path="res://src/resources/data_tile.gd" type="Script" id=1]
+[ext_resource path="res://src/resources/data_space.gd" type="Script" id=2]
+[ext_resource path="res://tres/resources/marble.tres" type="Resource" id=3]
+[ext_resource path="res://tres/terrain/hills.tres" type="Resource" id=4]
+[ext_resource path="res://tres/terrain/mountain.tres" type="Resource" id=5]
+[ext_resource path="res://tres/terrain/forest.tres" type="Resource" id=6]
+[ext_resource path="res://tres/city_states/kumasi.tres" type="Resource" id=7]
+[ext_resource path="res://tres/terrain/grassland.tres" type="Resource" id=8]
+
+[sub_resource type="Resource" id=1]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 4 )
+
+[sub_resource type="Resource" id=2]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 8 )
+
+[sub_resource type="Resource" id=3]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 4 )
+
+[sub_resource type="Resource" id=4]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 8 )
+spawn_data = ExtResource( 7 )
+
+[sub_resource type="Resource" id=5]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 6 )
+
+[sub_resource type="Resource" id=6]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 4 )
+
+[sub_resource type="Resource" id=7]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 5 )
+
+[sub_resource type="Resource" id=8]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 6 )
+
+[sub_resource type="Resource" id=9]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 8 )
+
+[sub_resource type="Resource" id=10]
+resource_local_to_scene = true
+script = ExtResource( 2 )
+terrain_data = ExtResource( 5 )
+spawn_data = ExtResource( 3 )
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+tile_name = "6b"
+tile_type = 1
+space_data_array = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]

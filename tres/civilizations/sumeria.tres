@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://src/resources/data_civilization.gd" type="Script" id=1]
+[ext_resource path="res://assets/leaders/flags/Sumeria.png" type="Texture" id=2]
+[ext_resource path="res://assets/leaders/portraits/Gilgamesh.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+civ_name = "Sumeria"
+civ_image = ExtResource( 2 )
+leader_name = "Gilgamesh"
+leader_image = ExtResource( 3 )
+ability_name = "Epic Quest"
+ability_text = "When you defeat a barbarian, gain 1 resource of your choice from the supply (in addition to a trade token)."
+focus_setup = [ 2, 1, 0, 5, 4, 3 ]
+city_names = [ "Uruk", "Eridu", "Kish", "Ur", "Lagash", "Nippur", "Bad-Tibira", "Sippar" ]
